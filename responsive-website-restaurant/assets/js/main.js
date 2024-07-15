@@ -89,6 +89,19 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
 
+/*==================== LOGIN ====================*/ 
+$(document).ready(function() {
+    $('#loginButton').on('click', function() {
+        console.log(ok,'#loginButton')
+        $('#loginContainer').load('./backend/login.php', function(response, status, xhr) {
+            console.log(ok,'##loginContainer')
+            if (status == "error") {
+                $('#loginContainer').php("載入失敗: " + xhr.status + " " + xhr.statusText);
+            }
+        });
+    });
+});
+
 /*==================== SCROLL REVEAL ANIMATION ====================*/
 const sr = ScrollReveal({
     origin: 'top',
