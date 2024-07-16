@@ -20,7 +20,7 @@
     <a href="#" class="scrolltop" id="scroll-top">
         <i class='bx bx-chevron-up scrolltop__icon'></i>
     </a>
-
+   
     <!--========== HEADER ==========-->
     <header class="l-header" id="header">
         <nav class="nav bd-container">
@@ -33,28 +33,27 @@
                     <li class="nav__item"><a href="#menu" class="nav__link">product</a></li>
                     <li class="nav__item"><a href="#contact" class="nav__link">Contact us</a></li>
 
-
-
                     <?php
                     if (isset($_SESSION['user'])) {
                         echo "<i onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out'></i>";
                         // echo "<button onclick='location.href=&#39;./api/logout.php&#39;'>登出</button>";
                     } else {
-                        echo "<li><i id='loginButton' class='bx bx-user change-theme'></i></li>";
+                        echo "<li><i id='loginButton' class='bx bx-user change-theme' onclick=\"$('#loginContainer').load('./backend/login.php')\"></i></li>";
                     }
                     ?>
-                    <div id="loginContainer"></div>
+
                     <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
                 </ul>
             </div>
-
             <div class="nav__toggle" id="nav-toggle">
                 <i class='bx bx-menu'></i>
             </div>
         </nav>
     </header>
-    
-
+  
+ <div id="loginContainer">
+        
+        </div>
     <main class="l-main">
         <!--========== HOME ==========-->
         <section class="home" id="home">
@@ -253,6 +252,8 @@
 
     <!--========== MAIN JS ==========-->
     <script src="assets/js/main.js"></script>
+
+
 </body>
 
 </html>
