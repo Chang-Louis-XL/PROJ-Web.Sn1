@@ -20,7 +20,7 @@
     <a href="#" class="scrolltop" id="scroll-top">
         <i class='bx bx-chevron-up scrolltop__icon'></i>
     </a>
-   
+
     <!--========== HEADER ==========-->
     <header class="l-header" id="header">
         <nav class="nav bd-container">
@@ -32,7 +32,7 @@
                     <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
                     <li class="nav__item"><a href="#menu" class="nav__link">product</a></li>
                     <li class="nav__item"><a href="#contact" class="nav__link">Contact us</a></li>
-
+                    <!--========== LOGIN ==========-->
                     <?php
                     if (isset($_SESSION['user'])) {
                         echo "<i onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out'></i>";
@@ -41,7 +41,7 @@
                         echo "<li><i id='loginButton' class='bx bx-user change-theme' onclick=\"$('#loginContainer').load('./backend/login.php')\"></i></li>";
                     }
                     ?>
-
+                    <div id="loginContainer"></div>
                     <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
                 </ul>
             </div>
@@ -50,10 +50,7 @@
             </div>
         </nav>
     </header>
-  
- <div id="loginContainer">
-        
-        </div>
+
     <main class="l-main">
         <!--========== HOME ==========-->
         <section class="home" id="home">
@@ -61,10 +58,10 @@
                 <div class="home__data">
                     <h2 class="home__title">Taiwan boutique agent</h2>
                     <h2 class="home__subtitle">Blooming the value of products</h2>
-                    <a href="#" class="button">View Menu</a>
+                    <!-- <a href="#" class="button">View Menu</a> -->
                 </div>
-                <img src="https://plus.unsplash.com/premium_photo-1668062993549-8167c11d6e7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWNjZXNzb3JpZXN8ZW58MHx8MHx8fDA%3D"
-                    alt="" class="home__img">
+                <!-- <img src="https://plus.unsplash.com/premium_photo-1668062993549-8167c11d6e7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWNjZXNzb3JpZXN8ZW58MHx8MHx8fDA%3D"
+                    alt="" class="home__img"> -->
             </div>
         </section>
 
@@ -132,7 +129,22 @@
                 </div>
             </div>
         </section>
-
+        <!--===== APP =======-->
+        <section class="app section bd-container">
+            <div class="app__container bd-grid">
+                <div class="app__data">
+                    <span class="section-subtitle app__initial">profolio</span>
+                    <h2 class="section-title app__initial"> multimedia </h2>
+                    <p class="app__description">Find our application and download it, you can make reservations, food
+                        orders, see your deliveries on the way and much more.</p>
+                    <div class="app__stores">
+                        <a href="#"><img src="assets/img/app1.png" alt="" class="app__store"></a>
+                        <a href="#"><img src="assets/img/app2.png" alt="" class="app__store"></a>
+                    </div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1622782914767-404fb9ab3f57?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="app__img">
+            </div>
+        </section>
         <!--========== MENU ==========-->
         <section class="menu section bd-container" id="menu">
             <span class="section-subtitle">product</span>
@@ -162,24 +174,6 @@
                     <span class="menu__preci">$9.50</span>
                     <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a>
                 </div>
-            </div>
-        </section>
-
-        <!--===== APP =======-->
-        <section class="app section bd-container">
-            <div class="app__container bd-grid">
-                <div class="app__data">
-                    <span class="section-subtitle app__initial">App</span>
-                    <h2 class="section-title app__initial">App is aviable</h2>
-                    <p class="app__description">Find our application and download it, you can make reservations, food
-                        orders, see your deliveries on the way and much more.</p>
-                    <div class="app__stores">
-                        <a href="#"><img src="assets/img/app1.png" alt="" class="app__store"></a>
-                        <a href="#"><img src="assets/img/app2.png" alt="" class="app__store"></a>
-                    </div>
-                </div>
-
-                <img src="assets/img/movil-app.png" alt="" class="app__img">
             </div>
         </section>
 

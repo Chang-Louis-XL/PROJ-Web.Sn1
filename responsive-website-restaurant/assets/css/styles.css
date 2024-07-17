@@ -410,6 +410,7 @@ img{
 .app__img{
   width: 230px;
   justify-self: center;
+  border-radius: .5rem;
 }
 
 /*========== CONTACT ==========*/
