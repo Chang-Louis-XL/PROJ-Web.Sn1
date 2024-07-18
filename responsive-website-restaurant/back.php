@@ -33,19 +33,19 @@
                 class="col-12 col-lg-3 mt-3 mb-3 border border-1 h-100 d-flex justify-content-center align-items-center">
                 <ul class="nav flex-column text-center d-flex justify-content-center align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link"  href="?do=Home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link"  href="?do=About">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
+                        <a class="nav-link"  href="?do=Services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">product</a>
+                        <a class="nav-link"  href="?do=product">product</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact us</a>
+                        <a class="nav-link"  href="?do=Contact">Contact us</a>
                     </li>
                 </ul>
             </div>

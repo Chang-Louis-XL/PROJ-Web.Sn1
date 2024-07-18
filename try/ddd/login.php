@@ -28,3 +28,7 @@
     </form>
   </div>
 
+  ​<picture>
+  <source srcset="..." type="image/svg+xml">
+  <img src="..." class="img-fluid img-thumbnail" alt="...">
+</picture>
