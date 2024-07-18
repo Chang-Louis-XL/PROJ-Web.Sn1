@@ -10,3 +10,21 @@
         </form>
     </div>
 </div>
+
+
+
+
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label for="name">姓名</label>
+        <input type="text" class="form-control" id="name" placeholder="請輸入姓名">
+      </div>
+      <div class="form-group">
+        <label for="email">電子郵件</label>
+        <input type="email" class="form-control" id="email" placeholder="請輸入電子郵件">
+      </div>
+      <button type="submit" class="btn btn-primary">送出</button>
+    </form>
+  </div>
+
