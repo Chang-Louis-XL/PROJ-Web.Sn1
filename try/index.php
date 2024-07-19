@@ -27,7 +27,7 @@
 
 <div id="loginContainer"></div>
 
-
+</body>
 <script>
 $(document).ready(function(){
     // 當按下會員登入按鈕時，動態加載login.php並顯示彈出視窗

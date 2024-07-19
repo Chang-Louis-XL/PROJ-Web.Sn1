@@ -54,7 +54,7 @@
     <main class="l-main">
         <!--========== HOME ==========-->
         <section class="home" id="home">
-            <div class="home__container  bd-grid">
+            <div class="home__container  bd-grid" style="background-image: url(./assets/img/bk01.png);">
                 <div class="home__data">
                     <h2 class="home__title">Taiwan boutique agent</h2>
                     <h2 class="home__subtitle">Blooming the value of products</h2>

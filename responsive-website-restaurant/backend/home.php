@@ -10,14 +10,16 @@
             </thead>
             <tbody>
                 <?php
-                $rows = $do->all();
-                foreach ($rows as $row) {
+                // echo $do;
+                // $rows = ${$do}->all();
+                // dd($$rows);
+                // foreach ($rows as $row) {
                     ?>
                     <tr>
                         <td class="text-center align-middle">
-                            <figcaption class="figure-caption text-end text-center">home backgrad-image</backgrad-image>
+                            <figcaption class="figure-caption text-end text-center">home backgrad-image
                             </figcaption>
-                            <img src="<?php echo $row['img'] ?? 'https://via.placeholder.com/150'; ?>" alt="Placeholder Image" class="img-fluid">
+                            <img src= "../assets/img/bk01.jpg" alt="Placeholder Image" class="img-fluid" style='width:50px;height:50px'>
                         </td>
                         <td class="text-center align-middle">
                             <button type="button" class="btn btn-primary"
@@ -27,7 +29,8 @@
                     </tr>
                     <tr>
                         <td class="text-center align-middle">
-                            <input type="text" class="form-control" id="textInput1" placeholder="輸入文字">
+                            <input type="text" name="text1[]" value="<?= $row['text1']; ?>" class="form-control"
+                                id="textInput1" placeholder="輸入文字">
                         </td>
                         <td class="text-center align-middle">
                             內容(1)
@@ -35,15 +38,17 @@
                     </tr>
                     <tr>
                         <td class="text-center align-middle">
-                            <input type="text" class="form-control" id="textInput1" placeholder="輸入文字">
+                            <input type="text" name="text2[]" value="<?= $row['text2']; ?>" class="form-control"
+                                id="textInput1" placeholder="輸入文字">
                         </td>
                         <td class="text-center align-middle">
                             內容(2)
                         </td>
                     </tr>
-
-                <?php } ?>
+                    <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+                <?php  ?>
             </tbody>
+
         </table>
         <button type="submit" class="btn btn-primary">送出</button>
     </form>

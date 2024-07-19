@@ -1,3 +1,4 @@
+<?php include_once "./api/base.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +54,7 @@
                 class="col-12 col-lg-8 mt-3 mb-3 border border-1 main d-flex justify-content-center align-items-center">
 
                 <?php
-                $do = $_GET['do'] ?? 'title';
+                $do = $_GET['do'] ?? 'Home';
 				$file = "./backend/{$do}.php";
 				if (file_exists($file)) {
 					include $file;

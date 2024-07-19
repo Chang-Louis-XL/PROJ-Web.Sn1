@@ -30,6 +30,7 @@ class DB
             $sql .= $arg[1];
         }
         //echo $sql;
+       
 
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -137,9 +138,9 @@ function dd($array)
 $Home = new DB('n1-home');
 
 
-if (!isset($_SESSION['view'])) {
-    $total = $Total->find(1);
-    $total['view']++;
-    $Total->save($total);
-    $_SESSION['view'] = $total['view'];
-}
+// if (!isset($_SESSION['view'])) {
+//     $total = $Total->find(1);
+//     $total['view']++;
+//     $Total->save($total);
+//     $_SESSION['view'] = $total['view'];
+// }

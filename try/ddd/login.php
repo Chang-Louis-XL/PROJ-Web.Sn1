@@ -32,3 +32,5 @@
   <source srcset="..." type="image/svg+xml">
   <img src="..." class="img-fluid img-thumbnail" alt="...">
 </picture>
+
+<img src= "./bk01.jpg" alt="Placeholder Image" class="img-fluid" style='width:50px;height:50px'>
