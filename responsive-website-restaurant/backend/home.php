@@ -1,54 +1,49 @@
 <div class="container">
     <h2 class="mb-4">Home內容更新</h2>
-    <form method="post" action="./api/edit.php">
-        <table class="table ">
+    
+    <form method="post" action="./api/update.php">
+        <table class="table" style="width:100%;height:95%;overflow:auto;">
             <thead class="table-light">
                 <tr>
+                    <th>圖片</th>
                     <th>內容</th>
-                    <th></th>
+                    <th>顯示</th>
+                    <th>刪除</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                // echo $do;
-                // $rows = ${$do}->all();
-                // dd($$rows);
-                // foreach ($rows as $row) {
+
+                $rows = ${$do}->all();
+                foreach ($rows as $row) {
                     ?>
                     <tr>
                         <td class="text-center align-middle">
-                            <figcaption class="figure-caption text-end text-center">home backgrad-image
-                            </figcaption>
-                            <img src= "../assets/img/bk01.jpg" alt="Placeholder Image" class="img-fluid" style='width:50px;height:50px'>
+                            <img src="<?php echo isset($row['img']) && !empty($row['img']) ? './assets/img/' . $row['img'] : 'https://via.placeholder.com/300'; ?>"
+                                alt="Placeholder Image" class="rounded" style='width:150px;height:150px'>
                         </td>
+
                         <td class="text-center align-middle">
-                            <button type="button" class="btn btn-primary"
-                                onclick="document.getElementById('fileInput1').click();">瀏覽</button>
-                            <input type="file" id="fileInput1" style="display:none;">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center align-middle">
+                            <label for="textInput1" class="form-label">內容(1)</label>
                             <input type="text" name="text1[]" value="<?= $row['text1']; ?>" class="form-control"
-                                id="textInput1" placeholder="輸入文字">
-                        </td>
-                        <td class="text-center align-middle">
-                            內容(1)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center align-middle">
+                                id="textInput1" placeholder="內容(1)">
+                            <label for="textInput2" class="form-label">內容(2)</label>
                             <input type="text" name="text2[]" value="<?= $row['text2']; ?>" class="form-control"
-                                id="textInput1" placeholder="輸入文字">
+                                id="textInput2" placeholder="內容(1)">
+                        </td>
+
+
+                        <td class="text-center align-middle">
+                            <button type="submit" class="btn btn-primary">送出</button>
                         </td>
                         <td class="text-center align-middle">
-                            內容(2)
+                            <button type="submit" class="btn btn-primary">送出</button>
                         </td>
                     </tr>
                     <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
-                <?php  ?>
+                <?php } ?>
             </tbody>
-
         </table>
-        <button type="submit" class="btn btn-primary">送出</button>
     </form>
+    <button type="submit" class="btn btn-primary d-flex justify-content-start"onclick="$('#modal').load('add_form.php')" >新增圖片</button>
+    <div id="modal"></div>

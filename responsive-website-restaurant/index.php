@@ -1,3 +1,4 @@
+<?php include_once "./api/base.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
     <!--========== CSS ==========-->
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Responsive website food</title>
+    <title>website</title>
 </head>
 
 <body>
@@ -54,10 +55,12 @@
     <main class="l-main">
         <!--========== HOME ==========-->
         <section class="home" id="home">
-            <div class="home__container  bd-grid" style="background-image: url(./assets/img/bk01.png);">
+       <?php $home = $Home->find(['id' => 1]); ?>
+       
+            <div class="home__container  bd-grid" style="background-image: url(./assets/img/<?= $home['img']; ?>);">
                 <div class="home__data">
-                    <h2 class="home__title">Taiwan boutique agent</h2>
-                    <h2 class="home__subtitle">Blooming the value of products</h2>
+                    <h2 class="home__title"><?= $home['text1']; ?></h2>
+                    <h2 class="home__subtitle"><?= $home['text2']; ?></h2>
                     <!-- <a href="#" class="button">View Menu</a> -->
                 </div>
                 <!-- <img src="https://plus.unsplash.com/premium_photo-1668062993549-8167c11d6e7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWNjZXNzb3JpZXN8ZW58MHx8MHx8fDA%3D"

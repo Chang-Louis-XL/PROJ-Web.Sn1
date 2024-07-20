@@ -3,3 +3,26 @@
 <img src="../assets/img/<?= $row['img']; ?>" alt="Placeholder Image" class="img-fluid" style='width:300px;height:30px'>
 
 <img src="../assets/img/bk01.png" alt="Placeholder Image" class="img-fluid">
+
+
+<figcaption class="figure-caption text-end text-center">home backgrad-image
+</figcaption>
+<img src= "../assets/img/bk01.jpg" alt="Placeholder Image" class="img-fluid" style='width:50px;height:50px'>
+
+<div class="text-center">
+    <img src="./assets/img/bk01.jpg" class="rounded" alt="..." style='width:300px;height:300px'>
+</div>
+
+
+Taiwan boutique agent
+Blooming the value of products
+
+
+<td class="text-center align-middle">
+    <button type="button" class="btn btn-primary"
+        onclick="document.getElementById('fileInput1').click();">瀏覽</button>
+    <input type="file" id="fileInput1" style="display:none;">
+</td>
+
+
+<button class='btn btn-primary'data-id="<?= $row['id']; ?>"><?= ($row['sh'] == 1) ? '顯示' : '隱蔵'; ?></button>
