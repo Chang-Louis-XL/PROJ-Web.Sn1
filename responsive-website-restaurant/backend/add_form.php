@@ -21,7 +21,7 @@
                         <input type="text" name="text2">
                     </div>
                     <div>
-                        <input type="hidden" name="table" value="Home">
+                        <input type="hidden" name="table" value="<?= $do; ?>">
                         <input type="submit" value="送出" class='btn btn-primary'>
                         <input type="reset" value="重置" class='btn btn-warning'>
                     </div>
