@@ -1,7 +1,12 @@
 <div class="container w-100 h-100 overflow-auto">
-<button type="button" class="btn btn-primary d-flex justify-content-start mb-2"
+
+<!-- <button type="button" class="btn btn-primary d-flex justify-content-start mb-2"
         onclick="$('#modal').load('./backend/add_form.php')">新增圖片</button>
-    <div id="modal"></div>
+    <div id="modal"></div> -->
+
+    <button type="button" class="btn btn-primary d-flex justify-content-start mb-2" onclick="showModal()">新增圖片</button>
+<div id="modal"></div>
+
     <form method="post" action="./api/update.php">
         <table class="table">
             <thead class="table-light">
@@ -47,6 +52,57 @@
             </tbody>
         </table>
     </form>
+
+
+    <script>
+    function showModal() {
+        const modalContainer = document.getElementById('modal');
+        modalContainer.innerHTML = `
+        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="w-100 text-center">新增圖片</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class='form-group mx-auto col-6 mt-5' action="./api/add.php" method="post"
+                    enctype="multipart/form-data">
+                    <div class='d-flex my-2'>
+                        <label for="" class='col-3 form-label'>圖片</label>
+                        <input type="file" name="img">
+                    </div>
+                    <div class='d-flex my-2'>
+                        <label for="" class='col-3 form-label'>文字內容(1)</label>
+                        <input type="text" name="text1">
+                    </div>
+                    <div class='d-flex my-2'>
+                        <label for="" class='col-3 form-label'>文字內容(2)</label>
+                        <input type="text" name="text2">
+                    </div>
+                    <div>
+                        <input type="hidden" name="table" value="<?= $do; ?>">
+                        <input type="submit" value="送出" class='btn btn-primary'>
+                        <input type="reset" value="重置" class='btn btn-warning'>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    `;
+
+        const addModal = new bootstrap.Modal(document.getElementById('addModal'));
+        const modalElement = document.getElementById('addModal');
+
+        modalElement.addEventListener('hidden.bs.modal', event => {
+            addModal.dispose();
+            modalContainer.innerHTML = "";
+        });
+
+        addModal.show();
+    }
+</script>
    
 
  
