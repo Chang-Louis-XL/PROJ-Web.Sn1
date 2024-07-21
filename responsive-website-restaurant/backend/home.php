@@ -1,8 +1,9 @@
-<div class="container">
-    <h2 class="mb-4">Home內容更新</h2>
-    
+<div class="container w-100 h-100 overflow-auto">
+<button type="button" class="btn btn-primary d-flex justify-content-start mb-2"
+        onclick="$('#modal').load('./backend/add_form.php')">新增圖片</button>
+    <div id="modal"></div>
     <form method="post" action="./api/update.php">
-        <table class="table" style="width:100%;height:95%;overflow:auto;">
+        <table class="table">
             <thead class="table-light">
                 <tr>
                     <th>圖片</th>
@@ -24,26 +25,28 @@
                         </td>
 
                         <td class="text-center align-middle">
-                            <label for="textInput1" class="form-label">內容(1)</label>
+                            <label for="textInput1" class="form-label">文字內容(1)</label>
                             <input type="text" name="text1[]" value="<?= $row['text1']; ?>" class="form-control"
                                 id="textInput1" placeholder="內容(1)">
-                            <label for="textInput2" class="form-label">內容(2)</label>
+                            <label for="textInput2" class="form-label">文字內容(2)</label>
                             <input type="text" name="text2[]" value="<?= $row['text2']; ?>" class="form-control"
                                 id="textInput2" placeholder="內容(1)">
                         </td>
 
+                        <td class="text-center align-middle">
+                        <input type="radio" name="sh" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>
+                        </td>
 
                         <td class="text-center align-middle">
-                            <button type="submit" class="btn btn-primary">送出</button>
+                        <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
                         </td>
-                        <td class="text-center align-middle">
-                            <button type="submit" class="btn btn-primary">送出</button>
-                        </td>
+
+                        <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                     </tr>
-                    <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                 <?php } ?>
             </tbody>
         </table>
     </form>
-    <button type="submit" class="btn btn-primary d-flex justify-content-start"onclick="$('#modal').load('add_form.php')" >新增圖片</button>
-    <div id="modal"></div>
+   
+
+ 
