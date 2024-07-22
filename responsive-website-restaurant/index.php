@@ -12,6 +12,7 @@
     <!--========== CSS ==========-->
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <title>website</title>
 </head>
 
@@ -36,13 +37,16 @@
                     <!--========== LOGIN ==========-->
                     <?php
                     if (isset($_SESSION['user'])) {
-                        echo "<i onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out'></i>";
+                        echo "<li><i onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out change-theme'></i></li>";
                         // echo "<button onclick='location.href=&#39;./api/logout.php&#39;'>登出</button>";
                     } else {
                         echo "<li><i id='loginButton' class='bx bx-user change-theme' onclick=\"$('#loginContainer').load('./backend/login.php')\"></i></li>";
                     }
                     ?>
-                    <div id="loginContainer"></div>
+                    <div id="loginContainer">
+                  
+                    </div>
+
                     <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
                 </ul>
             </div>

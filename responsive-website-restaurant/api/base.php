@@ -136,6 +136,7 @@ function dd($array)
 
 
 $Home = new DB('n1-home');
+$User = new DB('n1-users');
 
 
 // if (!isset($_SESSION['view'])) {
