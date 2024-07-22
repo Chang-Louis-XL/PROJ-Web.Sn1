@@ -13,8 +13,8 @@
                 <tr>
                     <th>圖片</th>
                     <th>內容</th>
-                    <th>顯示</th>
-                    <th>刪除</th>
+                    <th>操作</th>
+                
                 </tr>
             </thead>
             <tbody>
@@ -39,11 +39,9 @@
                         </td>
 
                         <td class="text-center align-middle">
-                        <input type="radio" name="sh" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>
-                        </td>
-
-                        <td class="text-center align-middle">
-                        <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
+                        <input type="radio" name="sh" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>顯示
+                        <button type="button" class="btn btn-warning">Edit</button>
+                        <button type="button" class="btn btn-danger">Del</button>
                         </td>
 
                         <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
