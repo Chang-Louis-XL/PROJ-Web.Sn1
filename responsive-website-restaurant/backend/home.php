@@ -1,13 +1,13 @@
 <div class="container w-100 h-100 overflow-auto">
 
-<!-- <button type="button" class="btn btn-primary d-flex justify-content-start mb-2"
-        onclick="$('#modal').load('./backend/add_form.php')">新增圖片</button>
-    <div id="modal"></div> -->
+<button type="button" class="btn btn-primary d-flex justify-content-start mb-2"
+        onclick="$('#modal').load('./backend/add_form.php?do=Home&test=1')">新增圖片</button>
+    <div id="modal"></div>
 
-    <button type="button" class="btn btn-primary d-flex justify-content-start mb-2" onclick="showModal()">新增圖片</button>
-<div id="modal"></div>
+    <!-- <button type="button" class="btn btn-primary d-flex justify-content-start mb-2" onclick="showModal()">新增圖片</button>
+<div id="modal"></div> -->
 
-    <form method="post" action="./api/update.php">
+    <form method="get" action="./api/update.php?do=Home">
         <table class="table">
             <thead class="table-light">
                 <tr>
@@ -37,14 +37,12 @@
                             <input type="text" name="text2[]" value="<?= $row['text2']; ?>" class="form-control"
                                 id="textInput2" placeholder="內容(1)">
                         </td>
-
+                        <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                         <td class="text-center align-middle">
                         <input type="radio" name="sh" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>顯示
-                        <button type="button" class="btn btn-warning">Edit</button>
-                        <button type="button" class="btn btn-danger">Del</button>
+                        <button type="button" class="btn btn-warning" onclick="$('#modal').load('./backend/add_form.php?do=Home&text1=<?=$row['text1'];?>&text2=<?=$row['text2'];?>&id=<?=$row['id'];?>&img=<?=$row['img'];?>')">Edit</button>
+                        <button type="button" class="btn btn-danger" onclick=" del('Home',<?= $row['id']; ?>)">Del</button>
                         </td>
-
-                        <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                     </tr>
                 <?php } ?>
             </tbody>
@@ -100,6 +98,32 @@
 
         addModal.show();
     }
+
+
+    function del(table, id) {
+        $.post("./api/del.php", {
+            table,
+            id
+        }, () => {
+            location.reload();
+        })
+    }
+
+
+    function edit() {
+        $.post("./api/del.php?do=Home", {
+            table,
+            id
+        }, () => {
+            location.reload();
+        })
+    }
+
+
+    function edit(id){
+  $("#modal").load('add_form.php',{id});
+}
+    
 </script>
    
 
