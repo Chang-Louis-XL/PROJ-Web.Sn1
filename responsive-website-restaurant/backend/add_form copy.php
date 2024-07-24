@@ -25,6 +25,7 @@
                             <input type="file" name="img" id="img">
                         <?php endif; ?>
                     </div>
+
                     <div class='d-flex my-2'>
                         <label for="" class='col-3 form-label'>文字內容(1)</label>
                         <input type="text" name="text1"

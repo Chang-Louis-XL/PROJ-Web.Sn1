@@ -69,5 +69,40 @@
 
 
 
+<button type="button" class="btn btn-warning" onclick="$('#modal').load('./backend/add_form.php?do=Home&text1=<?=$row['text1'];?>&text2=<?=$row['text2'];?>&id=<?=$row['id'];?>&img=<?=$row['img'];?>')">Edit</button>
+
+
+<div class='d-flex my-2'>
+    <label for="" class='col-3 form-label'>圖片</label>
+    <input type="file" name="img"
+        value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? "../assets/img/{$_GET['img']}" : 'img'; ?>">
+</div>
+
 
 <?php echo (isset($_POST['img']) && !empty($_POST['img'])) ? $_POST['img'] : 'img'; ?>
+
+
+
+
+
+<tr>
+    <td class="text-center align-middle">
+        <img src="<?php echo isset($row['img']) && !empty($row['img']) ? './assets/img/' . $row['img'] : 'https://via.placeholder.com/300'; ?>"
+            alt="Placeholder Image" class="rounded" style='width:150px;height:150px'>
+    </td>
+
+    <td class="text-center align-middle">
+        <label for="textInput1" class="form-label">文字內容(1)</label>
+        <input type="text" name="text1[]" value="<?= $row['text1']; ?>" class="form-control"
+            id="textInput1" placeholder="內容(1)">
+        <label for="textInput2" class="form-label">文字內容(2)</label>
+        <input type="text" name="text2[]" value="<?= $row['text2']; ?>" class="form-control"
+            id="textInput2" placeholder="內容(1)">
+    </td>
+    <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+    <td class="text-center align-middle">
+    <input type="radio" name="sh" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>顯示
+    <button type="submit" class="btn btn-warning" onclick="$('#modal').load('./backend/add_form.php?do=Home')">Edit</button>
+    <button type="button" class="btn btn-danger" onclick=" del('Home',<?= $row['id']; ?>)">Del</button>
+    </td>
+</tr>
