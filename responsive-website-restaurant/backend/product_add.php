@@ -1,8 +1,3 @@
-<style>
-    .sd {
-        background-image: url(../assets/img/03B02.png);
-    }
-</style>
 
 <form class='form-group mx-auto col-6 mt-5' action="./api/add.php" method="post" enctype="multipart/form-data">
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
