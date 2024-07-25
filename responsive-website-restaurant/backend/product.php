@@ -40,8 +40,8 @@
                         <td class="text-center align-middle">
                             <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                             <input type="checkbox" name="sh" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>顯示
-                            <button type="button" class="btn btn-warning" id="editbutton">Edit</button>
-                            <button type="button" class="btn btn-danger" onclick=" del('Home',<?= $row['id']; ?>)">Del</button>
+                            <button type="button" class="btn btn-warning"  onclick="editRow(<?= json_encode($row); ?>)">Edit</button>
+                            <button type="button" class="btn btn-danger" onclick=" del('Product',<?= $row['id']; ?>)">Del</button>
                         </td>
 
                     </tr>
@@ -56,22 +56,17 @@
 
 
 
-
-    document.getElementById('editbutton').addEventListener('click', () => {
-        $('#modal').load('./backend/product_add.php?do=Product', () => {
-            const modalElement = document.getElementById('addModal');
-            const modalContainer = modalElement.querySelector('.modal-content');
-
-            const addModal = new bootstrap.Modal(modalElement);
-
-            modalElement.addEventListener('hidden.bs.modal', () => {
-                addModal.dispose();
-                modalContainer.innerHTML = "";
-            });
-
-            addModal.show();
-        });
+function editRow(rowData) {
+    console.log(rowData);  // 確認 rowData 正確
+    const params = new URLSearchParams(rowData).toString();
+    const url = './backend/product_add.php?do=Product' + params;
+    console.log(url);  // 確認 URL 正確
+    $('#modal').load(url, function(response, status, xhr) {
+        if (status == "error") {
+            console.log("Error: " + xhr.status + " " + xhr.statusText);
+        }
     });
+}
 
 
     document.getElementById('addButton').addEventListener('click', () => {
