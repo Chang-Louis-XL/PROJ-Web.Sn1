@@ -55,7 +55,7 @@
                         <a class="nav-link" href="?do=Services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?do=product">product</a>
+                        <a class="nav-link" href="?do=Product">Product</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?do=Contact">Contact us</a>

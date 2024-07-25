@@ -62,7 +62,7 @@ class DB
             $sql = "insert into `$this->table` (`" . join("`,`", $keys) . "`) 
                    values('" . join("','", $arg) . "')";
         }
-        // echo $sql;
+        echo $sql;
         return $this->pdo->exec($sql);
     }
 
@@ -137,6 +137,7 @@ function dd($array)
 
 $Home = new DB('n1-home');
 $User = new DB('n1-users');
+$Product = new DB('n1-product');
 
 
 // if (!isset($_SESSION['view'])) {

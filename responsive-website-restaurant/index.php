@@ -32,7 +32,7 @@
                     <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
                     <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
                     <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
-                    <li class="nav__item"><a href="#menu" class="nav__link">product</a></li>
+                    <li class="nav__item"><a href="#menu" class="nav__link">Product</a></li>
                     <li class="nav__item"><a href="#contact" class="nav__link">Contact us</a></li>
                     <!--========== LOGIN ==========-->
                     <?php
@@ -151,9 +151,9 @@
                 <img src="https://images.unsplash.com/photo-1622782914767-404fb9ab3f57?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="app__img">
             </div>
         </section>
-        <!--========== MENU ==========-->
+        <!--========== Product ==========-->
         <section class="menu section bd-container" id="menu">
-            <span class="section-subtitle">product</span>
+            <span class="section-subtitle">Product</span>
             <h2 class="section-title">best-seller</h2>
 
             <div class="menu__container bd-grid">

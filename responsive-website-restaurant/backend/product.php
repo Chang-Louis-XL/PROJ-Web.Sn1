@@ -1,22 +1,11 @@
 <div class="container w-100 h-100 overflow-auto">
 
 
-
-
+    <button type="button" class="btn btn-primary d-flex justify-content-start mb-2" id="addButton">新增圖片</button>
     <div id="modal"></div>
 
-
-    <form action="./api/edit.php" method="post">
+    
         <table class="table">
-
-            <div class="row sticky-top">
-                <!-- <button type="button" class="btn btn-primary d-flex justify-content-start mb-3"
-            onclick="$('#modal').load('./backend/home_add.php?do=Home')">新增</button> -->
-                <button type="button" class="col-12 col-lg-1 btn btn-primary d-flex justify-content-start"
-                    onclick="showModal()">新增</button>
-                <button type="submit" class="col-12 col-lg-1 btn btn-warning d-flex justify-content-start">編輯</button>
-            </div>
-
             <thead class="table-light">
                 <tr>
                     <th>圖片</th>
@@ -30,39 +19,89 @@
                 $rows = ${$do}->all();
                 foreach ($rows as $row) {
                     ?>
-
                     <tr>
                         <td class="text-center align-middle">
                             <img src="<?php echo isset($row['img']) && !empty($row['img']) ? './assets/img/' . $row['img'] : 'https://via.placeholder.com/300'; ?>"
-                                alt="Placeholder Image" class="rounded" style='width:150px;height:150px'>
+                                alt="Placeholder Image" class="rounded" style='width:150px;heightgit:150px'>
                         </td>
 
                         <td class="text-center align-middle">
-                            <label for="textInput1" class="form-label">文字內容(1)</label>
-                            <input type="text" name="text1[]" value="<?= $row['text1']; ?>" class="form-control"
+                            <label for="textInput1" class="form-label">menu_name</label>
+                            <input type="text" name="menu_name[]" value="<?= $row['menu_name']; ?>" class="form-control"
                                 id="textInput1" placeholder="內容(1)">
-                            <label for="textInput2" class="form-label">文字內容(2)</label>
-                            <input type="text" name="text2[]" value="<?= $row['text2']; ?>" class="form-control"
-                                id="textInput2" placeholder="內容(1)">
+                            <label for="textInput2" class="form-label">menu_detail</label>
+                            <input type="text" name="menu_detail[]" value="<?= $row['menu_detail']; ?>" class="form-control"
+                                id="textInput2" placeholder="內容(2)">
+                            <label for="textInput2" class="form-label">enu_preci</label>
+                            <input type="text" name="menu_preci[]" value="<?= $row['menu_preci']; ?>" class="form-control"
+                                id="textInput2" placeholder="內容(3)">
                         </td>
-                        <input type="hidden" name="table" value="<?= $do; ?>">
-                        <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+
                         <td class="text-center align-middle">
-                            <input type="radio" aria-label="Radio button for following text input" name="sh"
-                                value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>顯示
-                            <input type="checkbox" aria-label="Checkbox for following text input" name="del[]"
-                                value="<?= $row['id']; ?>">刪除
+                            <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+                            <input type="checkbox" name="sh" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>顯示
+                            <button type="button" class="btn btn-warning" id="editbutton">Edit</button>
+                            <button type="button" class="btn btn-danger" onclick=" del('Home',<?= $row['id']; ?>)">Del</button>
                         </td>
+
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
-    </form>
 </div>
 
 
-
 <script>
+
+
+
+
+
+    document.getElementById('editbutton').addEventListener('click', () => {
+        $('#modal').load('./backend/product_add.php?do=Product', () => {
+            const modalElement = document.getElementById('addModal');
+            const modalContainer = modalElement.querySelector('.modal-content');
+
+            const addModal = new bootstrap.Modal(modalElement);
+
+            modalElement.addEventListener('hidden.bs.modal', () => {
+                addModal.dispose();
+                modalContainer.innerHTML = "";
+            });
+
+            addModal.show();
+        });
+    });
+
+
+    document.getElementById('addButton').addEventListener('click', () => {
+        $('#modal').load('./backend/product_add.php?do=Product', () => {
+            const modalElement = document.getElementById('addModal');
+            const modalContainer = modalElement.querySelector('.modal-content');
+
+            const addModal = new bootstrap.Modal(modalElement);
+
+            modalElement.addEventListener('hidden.bs.modal', () => {
+                addModal.dispose();
+                modalContainer.innerHTML = "";
+            });
+
+            addModal.show();
+        });
+    });
+
+
+    function del(table, id) {
+        $.post("./api/del.php", {
+            table,
+            id
+        }, () => {
+            location.reload();
+        })
+    }
+
+
+
     function showModal() {
         const modalContainer = document.getElementById('modal');
         modalContainer.innerHTML = `
@@ -99,7 +138,6 @@
     </div>
 </div>
     `;
-
         const addModal = new bootstrap.Modal(document.getElementById('addModal'));
         const modalElement = document.getElementById('addModal');
 
@@ -110,7 +148,4 @@
 
         addModal.show();
     }
-
-
-
 </script>
