@@ -11,25 +11,24 @@
                 <div class="modal-header">
                     <h1 class="w-100 text-center">新增/編輯</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <!-- <?php 
+                    // var_dump($_GET);
+                    // var_dump($row);
+                    ?> -->
                 </div>
 
                 <div class="modal-body">
-
-
                     <?php if ((isset($_GET['id']) && !empty($_GET['id']))) { ?>
-
-                        <img src="<?php echo isset($row['img']) && !empty($row['img']) ? '../assets/img/' . $row['img'] : 'https://via.placeholder.com/150'; ?>"
-                            alt="Placeholder Image" class="rounded" style='width:150px;heightgit:150px'>
-
+                        <img src="<?php echo isset($_GET['id']) && !empty($_GET['id']) ? './assets/img/'. $_GET['img'] : 'https://via.placeholder.com/150'; ?>"
+                            alt="Placeholder Image" class="rounded" style='width:150px;height:150px'>
+                            
                     <?php } else { ?>
 
                         <div class='d-flex my-2'>
                             <label for="" class='col-3 form-label'>圖片</label>
                             <input type="file" name="img">
                         </div>
-
                     <?php } ?>
-
                 </div>
 
 
