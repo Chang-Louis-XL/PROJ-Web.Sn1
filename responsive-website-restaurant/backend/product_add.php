@@ -55,7 +55,7 @@
                     <?php } ?>
 
                     <?php if (isset($_GET['id']) && !empty($_GET['id'])) { ?>
-                        <input type="radio" name="sh" value="<?= $_GET['sh']; ?>">
+                        <input type="hidden" name="sh" value="<?= $_GET['sh']; ?>">
                     <?php } ?>
 
                     <input type="hidden" name="table" value="<?= $do = $_GET['do'] ?? 'Product'; ?>">

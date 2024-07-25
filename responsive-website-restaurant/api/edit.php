@@ -25,4 +25,4 @@ foreach ($_POST['id'] as $key => $id) {
         $db->save($row);
     }
 }
-// to("../back.php?do=$do");
+to("../back.php?do=$do");

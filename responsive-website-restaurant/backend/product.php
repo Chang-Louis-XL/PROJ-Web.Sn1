@@ -38,10 +38,10 @@
                     </td>
                     <td class="text-center align-middle">
                         <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
-                        <input type="checkbox" aria-label="Radio button for following text input" name="sh[]"
-                            value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>顯示
+                        <input type="checkbox" aria-label="checkbox button for following text input" name="sh[]"
+                            id="checkbox_<?= $row['id']; ?>" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>顯示
                         <button type="button" class="btn btn-warning"
-                            onclick="editRow(<?= htmlspecialchars(json_encode($row)); ?>)">Edit</button>
+                            onclick="editRow(<?= htmlspecialchars(json_encode($row)); ?>, 'checkbox_<?= $row['id']; ?>')">Edit</button>
                         <button type="button" class="btn btn-danger"
                             onclick=" del('Product',<?= $row['id']; ?>)">Del</button>
                     </td>
@@ -55,16 +55,27 @@
 
 <script>
 
-
-    function editRow(rowData) {
+    function editRow(rowData, checkboxId) {
+        const checkbox = document.getElementById(checkboxId);
+        rowData.sh = checkbox.checked ? 1 : 0;
         console.log(rowData);
         const params = new URLSearchParams(rowData).toString();
         console.log(rowData);
         const url = './backend/product_add.php?do=Product&' + params;
-        console.log(URL);
+        console.log(url);
         $('#modal').load(url);
-
     }
+
+
+    // function editRow(rowData) {
+    //     console.log(rowData);
+    //     const params = new URLSearchParams(rowData).toString();
+    //     console.log(rowData);
+    //     const url = './backend/product_add.php?do=Product&' + params;
+    //     console.log(URL);
+    //     $('#modal').load(url);
+
+    // }
 
 
 

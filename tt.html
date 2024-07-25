@@ -106,3 +106,17 @@
     <button type="button" class="btn btn-danger" onclick=" del('Home',<?= $row['id']; ?>)">Del</button>
     </td>
 </tr>
+
+
+
+
+
+
+
+
+
+<input type="checkbox" aria-label="checkbox button for following text input" name="sh[]"
+value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>顯示
+<button type="button" class="btn btn-warning"
+onclick="editRow(<?= htmlspecialchars(json_encode($row)); ?>)">Edit</button>
+<button type="button" class="btn btn-danger"
