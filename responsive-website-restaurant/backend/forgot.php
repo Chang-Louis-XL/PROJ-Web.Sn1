@@ -7,7 +7,7 @@
 </fieldset>
 <script>
     function find() {
-        $.get("./api/forgot.php", {
+        $.get("../api/forgot.php", {
             email: $("#email").val()
         }, (result) => {
             console.log(result);

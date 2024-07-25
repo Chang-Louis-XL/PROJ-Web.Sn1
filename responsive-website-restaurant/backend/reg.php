@@ -1,3 +1,9 @@
+<style>
+    .orw{
+        background-image: url(../api/03B01.PNG);
+    }
+</style>
+
 <fieldset>
     <legend>會員註冊</legend>
     <!-- div+table>tr*5>td.clo+td>input:text -->
@@ -42,13 +48,13 @@
         } else if (user.pw != user.pw2) {
             alert("密碼錯誤")
         } else {
-            $.post('./api/chk_acc.php', {
+            $.post('../api/chk_acc.php', {
                 acc: user.acc
             }, (chk) => {
                 if (parseInt(chk) == 1) {
                     alert("帳號重複")
                 } else {
-                    $.post("./api/reg.php", user, (res) => {
+                    $.post("../api/reg.php", user, (res) => {
                         console.log(res)
                         alert("註冊完成，歡迎加入")
                     })

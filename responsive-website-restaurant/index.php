@@ -38,15 +38,14 @@
                     <?php
                     if (isset($_SESSION['user'])) {
                         echo "<li><i onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out change-theme'></i></li>";
+                        echo  "<li><i onclick='location.href=&#39;./back.php&#39;' class='bx bx-cog change-theme'></i></li>";
                         // echo "<button onclick='location.href=&#39;./api/logout.php&#39;'>登出</button>";
                     } else {
                         echo "<li><i id='loginButton' class='bx bx-user change-theme' onclick=\"$('#loginContainer').load('./backend/login.php')\"></i></li>";
                     }
                     ?>
                     <div id="loginContainer">
-                  
-                    </div>
-
+                    
                     <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
                 </ul>
             </div>
@@ -59,7 +58,7 @@
     <main class="l-main">
         <!--========== HOME ==========-->
         <section class="home" id="home">
-       <?php $home = $Home->find(['id' => 1]); ?>
+       <?php  $home = $Home->find(['sh' => 1]); ?>
        
             <div class="home__container  bd-grid" style="background-image: url(./assets/img/<?= $home['img']; ?>);">
                 <div class="home__data">
