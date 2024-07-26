@@ -44,7 +44,7 @@
                         echo "<li><i id='loginButton' class='bx bx-user change-theme' onclick=\"$('#loginContainer').load('./backend/login.php')\"></i></li>";
                     }
                     ?>
-                    <div id="loginContainer">
+                    <div id="loginContainer"></div>
 
                         <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
                 </ul>
