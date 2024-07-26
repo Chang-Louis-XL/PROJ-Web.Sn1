@@ -26,15 +26,11 @@
                     </td>
 
                     <td class="text-center align-middle">
-                        <label for="textInput1" class="form-label">menu_name</label>
-                        <input type="text" name="menu_name[]" value="<?= $row['menu_name']; ?>" class="form-control"
-                            id="textInput1" placeholder="內容(1)">
-                        <label for="textInput2" class="form-label">menu_detail</label>
-                        <input type="text" name="menu_detail[]" value="<?= $row['menu_detail']; ?>" class="form-control"
-                            id="textInput2" placeholder="內容(2)">
-                        <label for="textInput2" class="form-label">enu_preci</label>
-                        <input type="text" name="menu_preci[]" value="<?= $row['menu_preci']; ?>" class="form-control"
-                            id="textInput2" placeholder="內容(3)">
+                        <div class="col">
+                            <h3 class="menu__name"><?= $row['menu_name']; ?></h3>
+                            <p class="menu__detail"><?= $row['menu_detail']; ?></p>
+                            <p class="menu__preci"><?= $row['menu_preci']; ?></p>
+                        </div>
                     </td>
                     <td class="text-center align-middle">
                         <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
