@@ -136,6 +136,7 @@ function dd($array)
 
 
 $Home = new DB('n1-home');
+$About = new DB('n1-about');
 $User = new DB('n1-users');
 $Product = new DB('n1-product');
 

@@ -19,7 +19,12 @@ foreach ($_POST['id'] as $key => $id) {
                 $row['text1'] = $_POST['text1'][$key];
                 $row['text2'] = $_POST['text2'][$key];
                 break;
-          
+            case 'About':
+                $row['sh'] = (isset($_POST['sh']) && $_POST['sh'] == $id) ? 1 : 0;
+                $row['text1'] = $_POST['text1'][$key];
+                $row['text2'] = $_POST['text2'][$key];
+                break;
+
         }
 
         $db->save($row);

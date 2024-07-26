@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <title>website</title>
+    <title>Wallis`s BAWebsite</title>
 </head>
 
 <body>
@@ -72,17 +72,17 @@
 
 
         <!--========== ABOUT ==========-->
+        <?php $about = $About->find(['sh' => 1]) ?>
         <section class="about section bd-container" id="about">
             <div class="about__container  bd-grid">
                 <div class="about__data">
                     <span class="section-subtitle about__initial">About us</span>
-                    <h2 class="section-title about__initial">Create new value</h2>
-                    <p class="about__description">Decades of experience in advertising, helping high-quality products
-                        gain greater visibility.</p>
+                    <h2 class="section-title about__initial"><?= $about['text1']; ?></h2>
+                    <p class="about__description"><?= $about['text2']; ?></p>
                     <a href="#" class="button">Explore history</a>
                 </div>
 
-                <img src="https://images.unsplash.com/photo-1559385072-5adb2c4fc83f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8RElPUnxlbnwwfHwwfHx8MA%3D%3D"
+                <img src="./assets/img/<?= $about['img']; ?>"
                     alt="" class="about__img">
             </div>
         </section>
