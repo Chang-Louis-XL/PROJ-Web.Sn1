@@ -38,15 +38,15 @@
                     <?php
                     if (isset($_SESSION['user'])) {
                         echo "<li><i onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out change-theme'></i></li>";
-                        echo  "<li><i onclick='location.href=&#39;./back.php&#39;' class='bx bx-cog change-theme'></i></li>";
+                        echo "<li><i onclick='location.href=&#39;./back.php&#39;' class='bx bx-cog change-theme'></i></li>";
                         // echo "<button onclick='location.href=&#39;./api/logout.php&#39;'>登出</button>";
                     } else {
                         echo "<li><i id='loginButton' class='bx bx-user change-theme' onclick=\"$('#loginContainer').load('./backend/login.php')\"></i></li>";
                     }
                     ?>
                     <div id="loginContainer">
-                    
-                    <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+
+                        <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
                 </ul>
             </div>
             <div class="nav__toggle" id="nav-toggle">
@@ -58,8 +58,8 @@
     <main class="l-main">
         <!--========== HOME ==========-->
         <section class="home" id="home">
-       <?php  $home = $Home->find(['sh' => 1]); ?>
-       
+            <?php $home = $Home->find(['sh' => 1]) ?>
+
             <div class="home__container  bd-grid" style="background-image: url(./assets/img/<?= $home['img']; ?>);">
                 <div class="home__data">
                     <h2 class="home__title"><?= $home['text1']; ?></h2>
@@ -148,7 +148,8 @@
                         <a href="#"><img src="assets/img/app2.png" alt="" class="app__store"></a>
                     </div>
                 </div>
-                <img src="https://images.unsplash.com/photo-1622782914767-404fb9ab3f57?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="app__img">
+                <img src="https://images.unsplash.com/photo-1622782914767-404fb9ab3f57?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="" class="app__img">
             </div>
         </section>
         <!--========== Product ==========-->
@@ -157,29 +158,26 @@
             <h2 class="section-title">best-seller</h2>
 
             <div class="menu__container bd-grid">
-                <div class="menu__content">
-                    <img src="assets/img/p1.png" alt="" class="menu__img">
-                    <h3 class="menu__name">Barbecue salad</h3>
-                    <span class="menu__detail">Delicious dish</span>
-                    <span class="menu__preci">$22.00</span>
-                    <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a>
-                </div>
+                <?php
+                $products = $Product->all(['sh' => 1]);
+                foreach ($products as $product) {
+                    ?>
+                    <div class="menu__content">
+                        <img src="assets/img/<?= $product['img']; ?>" alt="" class="menu__img">
+                        <h3 class="menu__name"><?= $product['menu_name']; ?></h3>
+                        <span class="menu__detail"><?= $product['menu_detail']; ?></span>
+                        <span class="menu__preci"><?= $product['menu_preci']; ?></span>
+                        <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a>
+                    </div>
 
-                <div class="menu__content">
-                    <img src="assets/img/p3.png" alt="" class="menu__img">
-                    <h3 class="menu__name">Salad with fish</h3>
-                    <span class="menu__detail">Delicious dish</span>
-                    <span class="menu__preci">$12.00</span>
-                    <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a>
-                </div>
-
-                <div class="menu__content">
-                    <img src="assets/img/p4.png" alt="" class="menu__img">
-                    <h3 class="menu__name">Spinach salad</h3>
-                    <span class="menu__detail">Delicious dish</span>
-                    <span class="menu__preci">$9.50</span>
-                    <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a>
-                </div>
+                    <!-- <div class="menu__content">
+                        <img src="assets/img/p3.png" alt="" class="menu__img">
+                        <h3 class="menu__name">Salad with fish</h3>
+                        <span class="menu__detail">Delicious dish</span>
+                        <span class="menu__preci">$12.00</span>
+                        <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a>
+                    </div> -->
+                <?php } ?>
             </div>
         </section>
 
