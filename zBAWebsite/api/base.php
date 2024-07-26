@@ -4,13 +4,13 @@ session_start();
 class DB
 {
     protected $table;
-    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=z220";
+    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=s1130106";
     protected $pdo;
 
     public function __construct($table)
     {
         $this->table = $table;
-        $this->pdo = new PDO($this->dsn, 'root', '');
+        $this->pdo = new PDO($this->dsn, 's1130106', 's1130106');
     }
 
     public function all(...$arg)
