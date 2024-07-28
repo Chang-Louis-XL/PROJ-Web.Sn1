@@ -1,7 +1,6 @@
 <div class="container w-100 h-100 overflow-auto">
 
-    <button type="button" class=" btn btn-primary d-flex justify-content-start mb-2"
-        id="addButton">新增圖片</button>
+    <button type="button" class=" btn btn-primary d-flex justify-content-start mb-2" id="addButton">新增圖片</button>
 
     <form action="./api/edit.php" method="post">
         <table class="table">
@@ -22,15 +21,12 @@
                         <td class="text-center align-middle">
                             <?= $row['svg']; ?>
                         </td>
-                        <td class="text-center align-middle">
-                            <label for="textInput1" class="form-label">文字內容(1)</label>
-                            <input type="text" name="text1[]" value="<?= $row['text1']; ?>" class="form-control">
-                            <label for="textInput2" class="form-label">文字內容(2)</label>
-                            <input type="text" name="text2[]" value="<?= $row['text2']; ?>" class="form-control">
+                        <td class="text-center align-middle w-50">
+                                <h3 class="menu__name"><?= $row['text1']; ?></h3>
+                                <p class="menu__detail"><?= $row['text2']; ?></p>
                         </td>
-                        <input type="hidden" name="table" value="<?= $do; ?>">
-                        <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                         <td class="text-center align-middle">
+                            <input type="hidden" name="table" value="<?= $do; ?>">
                             <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                             <input type="checkbox" aria-label="checkbox button for following text input" name="sh[]"
                                 id="checkbox_<?= $row['id']; ?>" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>顯示

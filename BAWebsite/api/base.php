@@ -62,7 +62,7 @@ class DB
             $sql = "insert into `$this->table` (`" . join("`,`", $keys) . "`) 
                    values('" . join("','", $arg) . "')";
         }
-        echo $sql;
+        // echo $sql;
         return $this->pdo->exec($sql);
     }
 
@@ -140,6 +140,8 @@ $About = new DB('n1-about');
 $User = new DB('n1-users');
 $Product = new DB('n1-product');
 $Offering = new DB('n1-offering');
+$Profolio = new DB('n1-profolio');
+$Contect = new DB('n1-contect');
 
 
 // if (!isset($_SESSION['view'])) {
