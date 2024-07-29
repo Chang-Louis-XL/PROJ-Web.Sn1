@@ -71,11 +71,14 @@
                 <button onclick="clear()">清除</button>
             </td>
             <td>
+
+            <button id="forgotButton">忘記密碼</button>
+            <button id="registerButton">尚未註冊</button>
          
-            <button onclick='location.href=&#39;./backend/forgot.php&#39;'>忘記密碼</button>
-            <button onclick='location.href=&#39;./backend/reg.php&#39;'>尚未註冊</button>
-                <!-- <a href="?do=forgot">忘記密碼</a> -->
-                <!-- <a href="?do=reg">尚未註冊</a> -->
+            <!-- <button onclick='location.href=&#39;./backend/forgot.php&#39;'>忘記密碼</button>
+            <button onclick='location.href=&#39;./backend/reg.php&#39;'>尚未註冊</button> -->
+                <!-- <a href="?do=forgot">忘記密碼</a>
+                <a href="?do=reg">尚未註冊</a> -->
             </td>
         </tr>
     </table>

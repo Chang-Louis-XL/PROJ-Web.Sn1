@@ -93,26 +93,88 @@ window.addEventListener('scroll', scrollTop)
 
 /*==================== LOGIN ====================*/ 
 
-$(document).ready(function(){
-    // 當按下會員登入按鈕時，動態加載login.php並顯示彈出視窗
-    $("#loginButton").click(function(){
-        $("#loginContainer").load('./backend/login.php', function() {
-            $("#loginModal").css("display", "block");
 
-            // 添加關閉彈出視窗的功能
-            $(".close").click(function(){
-                $("#loginModal").css("display", "none");
-            });
+$(document).ready(function() {
+  // 當按下會員登入按鈕時，動態加載login.php並顯示彈出視窗
+  $("#loginButton").click(function() {
+      $("#loginContainer").load('./backend/login.php', function() {
+          $("#loginModal").css("display", "block");
 
-            // 當點擊彈出視窗外部時，隱藏彈出視窗
-            $(window).click(function(event){
-                if (event.target.id == "loginModal") {
-                    $("#loginModal").css("display", "none");
-                }
-            });
-        });
-    });
+          // 添加關閉彈出視窗的功能
+          $(".close").click(function() {
+              $("#loginModal").css("display", "none");
+          });
+
+          // 當點擊彈出視窗外部時，隱藏彈出視窗
+          $(window).click(function(event) {
+              if (event.target.id == "loginModal") {
+                  $("#loginModal").css("display", "none");
+              }
+          });
+      });
+  });
+
+  // 當按下忘記密碼按鈕時，動態加載forgot.php並顯示彈出視窗
+  $(document).on('click', '#forgotButton', function() {
+      $("#loginContainer").load('./backend/forgot.php', function() {
+          $("#forgotModal").css("display", "block");
+
+          // 添加關閉彈出視窗的功能
+          $(".close").click(function() {
+              $("#forgotModal").css("display", "none");
+          });
+
+          // 當點擊彈出視窗外部時，隱藏彈出視窗
+          $(window).click(function(event) {
+              if (event.target.id == "forgotModal") {
+                  $("#forgotModal").css("display", "none");
+              }
+          });
+      });
+  });
+
+  // 當按下尚未註冊按鈕時，動態加載reg.php並顯示彈出視窗
+  $(document).on('click', '#registerButton', function() {
+      $("#loginContainer").load('./backend/reg.php', function() {
+          $("#regModal").css("display", "block");
+
+          // 添加關閉彈出視窗的功能
+          $(".close").click(function() {
+              $("#regModal").css("display", "none");
+          });
+
+          // 當點擊彈出視窗外部時，隱藏彈出視窗
+          $(window).click(function(event) {
+              if (event.target.id == "regModal") {
+                  $("#regModal").css("display", "none");
+              }
+          });
+      });
+  });
 });
+
+// $(document).ready(function(){
+//     // 當按下會員登入按鈕時，動態加載login.php並顯示彈出視窗
+//     $("#loginButton").click(function(){
+//         $("#loginContainer").load('./backend/login.php', function() {
+//             $("#loginModal").css("display", "block");
+
+//             // 添加關閉彈出視窗的功能
+//             $(".close").click(function(){
+//                 $("#loginModal").css("display", "none");
+//             });
+
+//             // 當點擊彈出視窗外部時，隱藏彈出視窗
+//             $(window).click(function(event){
+//                 if (event.target.id == "loginModal") {
+//                     $("#loginModal").css("display", "none");
+//                 }
+//             });
+//         });
+//     });
+// });
+
+
 
 
 /*==================== DARK LIGHT THEME ====================*/ 

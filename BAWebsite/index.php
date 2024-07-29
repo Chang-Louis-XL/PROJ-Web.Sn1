@@ -36,12 +36,15 @@
                     <li class="nav__item"><a href="#contact" class="nav__link">Contact us</a></li>
                     <!--========== LOGIN ==========-->
                     <?php
+                    $do = $_GET['do'] ?? 'login';
+                    
+
                     if (isset($_SESSION['user'])) {
                         echo "<li><i id='logoutButton' onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out change-theme '></i></li>";
                         echo "<li><i id='cog' onclick='location.href=&#39;./back.php&#39;' class='bx bx-cog change-theme'></i></li>";
                         // echo "<button onclick='location.href=&#39;./api/logout.php&#39;'>登出</button>";
                     } else {
-                        echo "<li><i id='loginButton' class='bx bx-user change-theme' onclick=\"$('#loginContainer').load('./backend/login.php')\"></i></li>";
+                        echo "<li><i id='loginButton' class='bx bx-user change-theme' onclick=\"$('#loginContainer').load('./backend/login.php')\"></i></li>";  
                     }
                     ?>
                     <div id="loginContainer"></div>
