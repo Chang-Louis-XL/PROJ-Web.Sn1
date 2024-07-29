@@ -36,16 +36,37 @@
                     <li class="nav__item"><a href="#contact" class="nav__link">Contact us</a></li>
                     <!--========== LOGIN ==========-->
                     <?php
-                    $do = $_GET['do'] ?? 'login';
                     
+                    // if (isset($_SESSION['user'])) {
+                    //     echo "<li><i id='logoutButton' onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out change-theme '></i></li>";
+                    //     echo "<li><i id='cog' onclick='location.href=&#39;./back.php&#39;' class='bx bx-cog change-theme'></i></li>";
+                    //     // echo "<button onclick='location.href=&#39;./api/logout.php&#39;'>登出</button>";
+                    // } else {
+                    //     echo "<li><i id='loginButton' class='bx bx-user change-theme' onclick=\"$('#loginContainer').load('./backend/login.php')\"></i></li>";
+                    // }
 
-                    if (isset($_SESSION['user'])) {
+                    if (isset($_SESSION['user']) && $_SESSION['user'] === 'admin') {
                         echo "<li><i id='logoutButton' onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out change-theme '></i></li>";
                         echo "<li><i id='cog' onclick='location.href=&#39;./back.php&#39;' class='bx bx-cog change-theme'></i></li>";
-                        // echo "<button onclick='location.href=&#39;./api/logout.php&#39;'>登出</button>";
+                    } else if (!isset($_SESSION['user'])) {
+                        echo "<li><i id='loginButton' class='bx bx-user change-theme' onclick=\"$('#loginContainer').load('./backend/login.php')\"></i></li>";
                     } else {
-                        echo "<li><i id='loginButton' class='bx bx-user change-theme' onclick=\"$('#loginContainer').load('./backend/login.php')\"></i></li>";  
+                        echo "<li><i id='logoutButton' onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out change-theme '></i></li>";
                     }
+
+
+                    // if (isset($_SESSION['user']) && is_array($_SESSION['user']) && $_SESSION['user']['acc'] === 'admin') {
+                    //     echo "<li><i id='logoutButton' onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out change-theme '></i></li>";
+                    //     echo "<li><i id='cog' onclick='location.href=&#39;./back.php&#39;' class='bx bx-cog change-theme'></i></li>";
+                    // } else {
+                    //     echo "<li><i id='logoutButton' onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out change-theme '></i></li>";
+                    // }
+                    
+                    // if (!isset($_SESSION['user'])) {
+                    //     echo "<li><i id='loginButton' class='bx bx-user change-theme' onclick=\"$('#loginContainer').load('./backend/login.php')\"></i></li>";
+                    // }
+             
+
                     ?>
                     <div id="loginContainer"></div>
                     <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
@@ -145,8 +166,7 @@
                         <a href="#"><img src="assets/img/app2.png" alt="" class="app__store"></a>
                     </div>
                 </div>
-                <img src="./assets/img/<?= $profolio['img']; ?>"
-                    alt="" class="app__img">
+                <img src="./assets/img/<?= $profolio['img']; ?>" alt="" class="app__img">
             </div>
         </section>
         <!--========== Product ==========-->
@@ -184,7 +204,8 @@
                 <div class="contact__data">
                     <span class="section-subtitle contact__initial">Let's talk</span>
                     <h2 class="section-title contact__initial">Contact us</h2>
-                    <p class="contact__description">Please fill out the following information so we can arrange a dedicated service representative for you.</p>
+                    <p class="contact__description">Please fill out the following information so we can arrange a
+                        dedicated service representative for you.</p>
                 </div>
 
                 <div class="contact__button">
