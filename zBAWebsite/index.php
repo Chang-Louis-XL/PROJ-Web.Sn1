@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <title>website</title>
+    <title>Wallis`s BAWebsite</title>
 </head>
 
 <body>
@@ -45,8 +45,7 @@
                     }
                     ?>
                     <div id="loginContainer"></div>
-
-                        <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+                    <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
                 </ul>
             </div>
             <div class="nav__toggle" id="nav-toggle">
@@ -73,18 +72,17 @@
 
 
         <!--========== ABOUT ==========-->
+        <?php $about = $About->find(['sh' => 1]) ;?>
         <section class="about section bd-container" id="about">
             <div class="about__container  bd-grid">
                 <div class="about__data">
                     <span class="section-subtitle about__initial">About us</span>
-                    <h2 class="section-title about__initial">Create new value</h2>
-                    <p class="about__description">Decades of experience in advertising, helping high-quality products
-                        gain greater visibility.</p>
+                    <h2 class="section-title about__initial"><?= $about['text1']; ?></h2>
+                    <p class="about__description"><?= $about['text2']; ?></p>
                     <a href="#" class="button">Explore history</a>
                 </div>
 
-                <img src="https://images.unsplash.com/photo-1559385072-5adb2c4fc83f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8RElPUnxlbnwwfHwwfHx8MA%3D%3D"
-                    alt="" class="about__img">
+                <img src="./assets/img/<?= $about['img']; ?>" alt="" class="about__img">
             </div>
         </section>
 
@@ -92,21 +90,17 @@
         <section class="services section bd-container" id="services">
             <span class="section-subtitle">Offering</span>
             <h2 class="section-title">Our amazing services</h2>
-
             <div class="services__container  bd-grid">
-                <div class="services__content">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="84" height="84" viewBox="0 0 24 24"
-                        style="fill: rgb(152, 157, 158);transform: msFilter">
-                        <path
-                            d="M19.148 2.971A2.008 2.008 0 0 0 17.434 2H6.566c-.698 0-1.355.372-1.714.971L2.143 7.485A.995.995 0 0 0 2 8a3.97 3.97 0 0 0 1 2.618V19c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-8.382A3.97 3.97 0 0 0 22 8a.995.995 0 0 0-.143-.515l-2.709-4.514zm.836 5.28A2.003 2.003 0 0 1 18 10c-1.103 0-2-.897-2-2 0-.068-.025-.128-.039-.192l.02-.004L15.22 4h2.214l2.55 4.251zM10.819 4h2.361l.813 4.065C13.958 9.137 13.08 10 12 10s-1.958-.863-1.993-1.935L10.819 4zM6.566 4H8.78l-.76 3.804.02.004C8.025 7.872 8 7.932 8 8c0 1.103-.897 2-2 2a2.003 2.003 0 0 1-1.984-1.749L6.566 4zM10 19v-3h4v3h-4zm6 0v-3c0-1.103-.897-2-2-2h-4c-1.103 0-2 .897-2 2v3H5v-7.142c.321.083.652.142 1 .142a3.99 3.99 0 0 0 3-1.357c.733.832 1.807 1.357 3 1.357s2.267-.525 3-1.357A3.99 3.99 0 0 0 18 12c.348 0 .679-.059 1-.142V19h-3z">
-                        </path>
-                    </svg>
-                    <h3 class="services__title">Store display</h3>
-                    <p class="services__description">We offer our clients excellent quality services for many years,
-                        with the best and delicious food in the city.</p>
-                </div>
+                <?php $offerings = $Offering->all(['sh' => 1]);
+                foreach ($offerings as $offering) { ?>
+                    <div class="services__content">
+                        <?= $offering['svg']; ?>
+                        <h3 class="services__title"><?= $offering['text1']; ?></h3>
+                        <p class="services__description"><?= $offering['text2']; ?></p>
 
-                <div class="services__content">
+                    </div>
+                <?php } ?>
+                <!-- <div class="services__content">
                     <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24"
                         style="fill: rgba(152, 157, 158);transform: msFilter">
                         <path
@@ -132,23 +126,23 @@
                     <h3 class="services__title">Product management</h3>
                     <p class="services__description">We offer our clients excellent quality services for many years,
                         with the best and delicious food in the city.</p>
-                </div>
+                </div> -->
             </div>
         </section>
         <!--===== APP =======-->
+        <?php $profolio = $Profolio->find(['sh' => 1]) ?>
         <section class="app section bd-container">
             <div class="app__container bd-grid">
                 <div class="app__data">
                     <span class="section-subtitle app__initial">profolio</span>
-                    <h2 class="section-title app__initial"> multimedia </h2>
-                    <p class="app__description">Find our application and download it, you can make reservations, food
-                        orders, see your deliveries on the way and much more.</p>
+                    <h2 class="section-title app__initial"><?= $profolio['text1']; ?></h2>
+                    <p class="app__description"><?= $profolio['text2']; ?></p>
                     <div class="app__stores">
                         <a href="#"><img src="assets/img/app1.png" alt="" class="app__store"></a>
                         <a href="#"><img src="assets/img/app2.png" alt="" class="app__store"></a>
                     </div>
                 </div>
-                <img src="https://images.unsplash.com/photo-1622782914767-404fb9ab3f57?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                <img src="./assets/img/<?= $profolio['img']; ?>"
                     alt="" class="app__img">
             </div>
         </section>
@@ -187,8 +181,7 @@
                 <div class="contact__data">
                     <span class="section-subtitle contact__initial">Let's talk</span>
                     <h2 class="section-title contact__initial">Contact us</h2>
-                    <p class="contact__description">If you want to reserve a table in our restaurant, contact us and we
-                        will attend you quickly, with our 24/7 chat service.</p>
+                    <p class="contact__description">Please fill out the following information so we can arrange a dedicated service representative for you.</p>
                 </div>
 
                 <div class="contact__button">

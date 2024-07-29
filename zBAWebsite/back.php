@@ -10,6 +10,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <!--========== BOX ICONS ==========-->
+     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <title>back</title>
 </head>
 
@@ -29,21 +31,22 @@
 </style>
 
 <body>
-<a href="index.php" >回首頁</a>
-        <span style="width:18%; display:inline-block;">
-						<?php
-						if (isset($_SESSION['user'])) {
-							echo "歡迎，{$_SESSION['user']}";
-							echo "<button onclick='location.href=&#39;./api/logout.php&#39;'>登出</button>";
-						} else {
-							echo "<a href='?do=login'>會員登入</a>";
-						}
-						?>
-					</span>
+    <a href="index.php">回首頁</a>
+    <span style="width:18%; display:inline-block;">
+        <?php
+        if (isset($_SESSION['user'])) {
+            echo "歡迎，{$_SESSION['user']}";
+            echo "<button onclick='location.href=&#39;./api/logout.php&#39;'>登出</button>";
+        } else {
+            echo "<a href='?do=login'>會員登入</a>";
+        }
+        ?>
+    </span>
     <div class="container container-h d-flex justify-content-center align-items-center mt-3">
-    
+
         <div class="row border border-1 w-100 d-flex justify-content-center align-items-center text-center">
-            <div class="col-12 col-lg-2 mt-3 mb-3 border border-1 h-100 d-flex justify-content-center align-items-center">
+            <div
+                class="col-12 col-lg-2 mt-3 mb-3 border border-1 h-100 d-flex justify-content-center align-items-center">
                 <ul class="nav flex-column text-center d-flex justify-content-center align-items-center">
                     <li class="nav-item">
                         <a class="nav-link" href="?do=Home">Home</a>
@@ -51,8 +54,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="?do=About">About</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="?do=Services">Services</a>
+                    </li> -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="?do=Offering">Offering</a></li>
+                            <li><a class="dropdown-item" href="?do=Profolio">Profolio</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?do=Product">Product</a>

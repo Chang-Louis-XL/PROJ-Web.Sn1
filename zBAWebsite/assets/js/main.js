@@ -24,24 +24,56 @@ function linkAction(){
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
-const sections = document.querySelectorAll('section[id]')
+// // 選取所有具有 id 屬性的 section 元素，並將它們存入 sections 常量中。這些元素將用來確定當前滾動到的區段。
+// const sections = document.querySelectorAll('section[id]')
+// // 定義一個名為 scrollActive 的函數，這個函數將在滾動事件發生時執行。
+// function scrollActive(){
+//     // 取得當前頁面的垂直滾動位置（即頁面頂部到當前視窗頂部的距離），並將其存入 scrollY 常量中。
+//     const scrollY = window.pageYOffset
 
-function scrollActive(){
-    const scrollY = window.pageYOffset
+//     sections.forEach(current =>{
+//         const sectionHeight = current.offsetHeight
+//         // 取得當前 section 元素的頂部位置，並將其減去 XX 像素的偏移量，將結果存入 sectionTop 常量中。這個偏移量可以用來調整滾動判斷的靈敏度。
+//         const sectionTop = current.offsetTop - 200;
+//         sectionId = current.getAttribute('id')
 
-    sections.forEach(current =>{
-        const sectionHeight = current.offsetHeight
-        const sectionTop = current.offsetTop - 50;
-        sectionId = current.getAttribute('id')
+//         if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+//             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+//         }else{
+//             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+//         }
+//     })
+// }
+// window.addEventListener('scroll', scrollActive)
 
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
-        }else{
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+
+$(document).ready(function() {
+    const sections = $('section[id]');
+    const options = {
+      root: null, // 表示相對於視口
+      rootMargin: '0px',
+      threshold: 0.8 // 50%的區域可見時觸發回調
+    };
+  
+    function scrollActive(entries, observer) {
+      entries.forEach(entry => {
+        const sectionId = entry.target.id;
+        const navLink = $('.nav__menu a[href*=' + sectionId + ']');
+  
+        if (entry.isIntersecting) {
+          navLink.addClass('active-link');
+        } else {
+          navLink.removeClass('active-link');
         }
-    })
-}
-window.addEventListener('scroll', scrollActive)
+      });
+    }
+  
+    const observer = new IntersectionObserver(scrollActive, options);
+  
+    sections.each(function() {
+      observer.observe(this);
+    });
+  });
 
 /*==================== CHANGE BACKGROUND HEADER ====================*/ 
 function scrollHeader(){

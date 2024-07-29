@@ -84,7 +84,7 @@
                 if (file_exists($file)) {
                     include $file;
                 } else {
-                    include "./backend/home.php";
+                    include "./backend/Home.php";
                 }
                 ?>
 

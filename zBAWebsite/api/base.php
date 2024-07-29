@@ -136,8 +136,12 @@ function dd($array)
 
 
 $Home = new DB('n1-home');
+$About = new DB('n1-about');
 $User = new DB('n1-users');
 $Product = new DB('n1-product');
+$Offering = new DB('n1-offering');
+$Profolio = new DB('n1-profolio');
+$Contect = new DB('n1-contect');
 
 
 // if (!isset($_SESSION['view'])) {

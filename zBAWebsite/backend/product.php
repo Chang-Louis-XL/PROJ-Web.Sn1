@@ -1,6 +1,6 @@
 <div class="container w-100 h-100 overflow-auto">
 
-
+     
     <button type="button" class="btn btn-primary d-flex justify-content-start mb-2" id="addButton">新增圖片</button>
     <div id="modal"></div>
 
@@ -26,15 +26,11 @@
                     </td>
 
                     <td class="text-center align-middle">
-                        <label for="textInput1" class="form-label">menu_name</label>
-                        <input type="text" name="menu_name[]" value="<?= $row['menu_name']; ?>" class="form-control"
-                            id="textInput1" placeholder="內容(1)">
-                        <label for="textInput2" class="form-label">menu_detail</label>
-                        <input type="text" name="menu_detail[]" value="<?= $row['menu_detail']; ?>" class="form-control"
-                            id="textInput2" placeholder="內容(2)">
-                        <label for="textInput2" class="form-label">enu_preci</label>
-                        <input type="text" name="menu_preci[]" value="<?= $row['menu_preci']; ?>" class="form-control"
-                            id="textInput2" placeholder="內容(3)">
+                        <div class="col">
+                            <h3 class="menu__name"><?= $row['menu_name']; ?></h3>
+                            <p class="menu__detail"><?= $row['menu_detail']; ?></p>
+                            <p class="menu__preci"><?= $row['menu_preci']; ?></p>
+                        </div>
                     </td>
                     <td class="text-center align-middle">
                         <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
@@ -105,53 +101,5 @@
             location.reload();
         })
     }
-
-
-
-    function showModal() {
-        const modalContainer = document.getElementById('modal');
-        modalContainer.innerHTML = `
-        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="w-100 text-center">新增圖片</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form class='form-group mx-auto col-6 mt-5' action="./api/add.php" method="post"
-                    enctype="multipart/form-data">
-                    <div class='d-flex my-2'>
-                        <label for="" class='col-3 form-label'>圖片</label>
-                        <input type="file" name="img">
-                    </div>
-                    <div class='d-flex my-2'>
-                        <label for="" class='col-3 form-label'>文字內容(1)</label>
-                        <input type="text" name="text1">
-                    </div>
-                    <div class='d-flex my-2'>
-                        <label for="" class='col-3 form-label'>文字內容(2)</label>
-                        <input type="text" name="text2">
-                    </div>
-                    <div>
-                        <input type="hidden" name="table" value="<?= $do; ?>">
-                        <input type="submit" value="送出" class='btn btn-primary'>
-                        <input type="reset" value="重置" class='btn btn-warning'>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-    `;
-        const addModal = new bootstrap.Modal(document.getElementById('addModal'));
-        const modalElement = document.getElementById('addModal');
-
-        modalElement.addEventListener('hidden.bs.modal', event => {
-            addModal.dispose();
-            modalContainer.innerHTML = "";
-        });
-
-        addModal.show();
-    }
+    
 </script>
