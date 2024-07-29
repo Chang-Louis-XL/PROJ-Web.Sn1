@@ -81,6 +81,14 @@ body.dark-theme{
   cursor: pointer;
 }
 
+#loginButton,#logoutButton{
+  top: 3.8rem;
+}
+
+#cog{
+  top: 5.8rem;
+}
+
 body{
   margin: var(--header-height) 0 0 0;
   font-family: var(--body-font);
