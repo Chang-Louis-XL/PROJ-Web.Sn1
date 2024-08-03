@@ -154,51 +154,45 @@ $(document).ready(function() {
 });
 
 
-$(document).ready(function() {
-    // 當按下會員登入按鈕時，動態加載login.php並顯示彈出視窗
-    $("#loginButton").click(function() {
-        $("#loginContainer").load('./backend/login.php', function() {
-            $("#loginModal").css("display", "block");
-  
-            // 添加關閉彈出視窗的功能
-            $(".close").click(function() {
-                $("#loginModal").css("display", "none");
-            });
-  
-            // 當點擊彈出視窗外部時，隱藏彈出視窗
-            $(window).click(function(event) {
-                if (event.target.id == "loginModal") {
-                    $("#loginModal").css("display", "none");
-                }
-            });
-        });
-    });
-});
+/*==================== BOOKING ====================*/ 
 
-// $(document).ready(function(){
-//     // 當按下會員登入按鈕時，動態加載login.php並顯示彈出視窗
-//     $("#loginButton").click(function(){
-//         $("#loginContainer").load('./backend/login.php', function() {
-//             $("#loginModal").css("display", "block");
+// function loadBookView() {
+//     $('#BookView').load('./backend/book.php', function() {
+//         const addModalElement = document.getElementById('addModal');
+//         if (!addModalElement) {
+//             console.error('Modal element not found');
+//             return;
+//         }
+//         const addModal = new bootstrap.Modal(addModalElement);
+//         addModal.show();
 
-//             // 添加關閉彈出視窗的功能
-//             $(".close").click(function(){
-//                 $("#loginModal").css("display", "none");
-//             });
-
-//             // 當點擊彈出視窗外部時，隱藏彈出視窗
-//             $(window).click(function(event){
-//                 if (event.target.id == "loginModal") {
-//                     $("#loginModal").css("display", "none");
-//                 }
-//             });
+//         addModalElement.addEventListener('hidden.bs.modal', () => {
+//             addModal.dispose();
+//             $('#BookView').empty();
+//             $('.modal-backdrop').remove();
+//             $('body').removeClass('modal-open');
 //         });
 //     });
-// });
+// }
 
+function loadBookView() {
+    $('#BookView').load('./backend/book.php', function() {
+        const addModalElement = document.getElementById('addModal');
+        if (!addModalElement) {
+            console.error('Modal element not found');
+            return;
+        }
+        const addModal = new bootstrap.Modal(addModalElement);
+        addModal.show();
 
-
-
+        addModalElement.addEventListener('hidden.bs.modal', () => {
+            addModal.dispose();
+            $('#BookView').empty();
+            $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open');
+        });
+    });
+}
 /*==================== DARK LIGHT THEME ====================*/ 
 const themeButton = document.getElementById('theme-button')
 const darkTheme = 'dark-theme'
