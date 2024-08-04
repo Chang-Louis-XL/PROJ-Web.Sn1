@@ -1,11 +1,8 @@
-<div class="container w-100 h-100 overflow-auto">
-
-
-    <button type="button" class="btn btn-primary d-flex justify-content-start mb-2" id="addButton">新增圖片</button>
-    <div id="modal"></div>
-
+<div class="container w-100 h-100 mt-3 overflow-auto">
 
     <table class="table">
+        <button type="button" class="btn btn-primary d-flex justify-content-start mb-2" id="addButton">新增圖片</button>
+        <div id="modal"></div>
         <thead class="table-light">
             <tr>
                 <th>圖片</th>
@@ -14,6 +11,8 @@
 
             </tr>
         </thead>
+
+
         <tbody>
             <?php
             $rows = ${$do}->all();
@@ -42,7 +41,6 @@
                         <button type="button" class="btn btn-danger"
                             onclick=" del('Product',<?= $row['id']; ?>)">Del</button>
                     </td>
-
                 </tr>
             <?php } ?>
         </tbody>
@@ -68,9 +66,9 @@
             id: $(this).data("id"),
             do: $(this).data("do")
         }, () => {
-            
+
             // location.reload();
-           
+
             switch ($(this).text()) {
                 case '顯示':
                     $(this).text('隱藏')

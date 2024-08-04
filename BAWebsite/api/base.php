@@ -142,6 +142,7 @@ $Product = new DB('n1-product');
 $Offering = new DB('n1-offering');
 $Profolio = new DB('n1-profolio');
 $Book = new DB('n1-book');
+$Contact = new DB('n1-contact');
 
 
 // if (!isset($_SESSION['view'])) {

@@ -22,11 +22,11 @@
     }
 
     .main {
-        height: 70vh;
+        height: 80vh;
     }
 
     .nav {
-        height: 70vh;
+        height: 80vh;
     }
 </style>
 
@@ -42,12 +42,10 @@
         }
         ?>
     </span>
-    <div class="container-fluid container-h d-flex justify-content-center align-items-center mt-3 ">
-
-        <div class="row border border-1 w-75 d-flex justify-content-center align-items-center text-center">
-            <div
-                class="col-12 col-lg-2 mt-3 mb-3 border border-1 h-100 d-flex justify-content-center align-items-center">
-                <ul class="nav flex-column text-center d-flex justify-content-center align-items-center">
+    <div class="container-fluid container-h d-flex justify-content-center align-items-center mt-5">
+        <div class="row w-75 d-flex justify-content-center align-items-center text-center">
+            <div class="col-12 col-lg-2 border border-1  d-flex justify-content-center align-items-center">
+                <ul class="nav flex-column d-flex justify-content-center">
                     <li class="nav-item">
                         <a class="nav-link" href="?do=Home">Home</a>
                     </li>
@@ -75,8 +73,7 @@
                     </li>
                 </ul>
             </div>
-            <div
-                class="col-12 col-lg-10 mt-3 mb-3 border border-1 main d-flex justify-content-center align-items-center">
+            <div class="col-12 col-lg-10 main border border-1  d-flex justify-content-center align-items-center">
 
                 <?php
                 $do = $_GET['do'] ?? 'Home';
