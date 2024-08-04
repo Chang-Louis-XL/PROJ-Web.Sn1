@@ -156,24 +156,12 @@ $(document).ready(function() {
 
 /*==================== BOOKING ====================*/ 
 
-// function loadBookView() {
-//     $('#BookView').load('./backend/book.php', function() {
-//         const addModalElement = document.getElementById('addModal');
-//         if (!addModalElement) {
-//             console.error('Modal element not found');
-//             return;
-//         }
-//         const addModal = new bootstrap.Modal(addModalElement);
-//         addModal.show();
 
-//         addModalElement.addEventListener('hidden.bs.modal', () => {
-//             addModal.dispose();
-//             $('#BookView').empty();
-//             $('.modal-backdrop').remove();
-//             $('body').removeClass('modal-open');
-//         });
-//     });
-// }
+$(document).ready(function() {
+    $("#contactButton").click(function() {
+        loadBookView();
+    });
+});
 
 function loadBookView() {
     $('#BookView').load('./backend/book.php', function() {
@@ -185,14 +173,21 @@ function loadBookView() {
         const addModal = new bootstrap.Modal(addModalElement);
         addModal.show();
 
-        addModalElement.addEventListener('hidden.bs.modal', () => {
+        addModalElement.addEventListener('hidden.bs.modal', onModalHidden);
+
+        function onModalHidden() {
             addModal.dispose();
             $('#BookView').empty();
             $('.modal-backdrop').remove();
-            $('body').removeClass('modal-open');
-        });
+            $('body').removeClass('modal-open').css('padding-right', '');
+        }
+
+        // 使 onModalHidden 可在外部調用
+        window.onModalHidden = onModalHidden;
     });
 }
+
+
 /*==================== DARK LIGHT THEME ====================*/ 
 const themeButton = document.getElementById('theme-button')
 const darkTheme = 'dark-theme'

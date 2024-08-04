@@ -213,7 +213,8 @@
                 <div class="contact__button">
 
                     <!-- <button onclick="loadBookView()" class="button" style="border: none;">Contact us now</button> -->
-                    <button class="button" style="border: none;" onclick="$('#BookView').load('./backend/book.php')">Contact us now</button>
+                    <button id="contactButton" class="button" style="border: none;">Contact us now</button>
+                    <!-- <button class="button" style="border: none;" onclick="$('#BookView').load('./backend/book.php')">Contact us now</button> -->
                 </div>
             </div>
         </section>

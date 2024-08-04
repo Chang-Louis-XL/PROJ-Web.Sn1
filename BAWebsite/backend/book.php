@@ -1,4 +1,4 @@
-<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -59,14 +59,11 @@
     })
     //console.log(addModal)
     addModal.show()
-
-
-
 </script>
+ -->
 
 
-<!-- 
-<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+ <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -99,6 +96,8 @@
 </div>
 
 <script>
+
+
 function send() {
     let form = {
         name: $("#name").val(),
@@ -109,19 +108,15 @@ function send() {
     $.post("./api/booking.php", form, function (res) {
         if (res == '1') {
             alert('預定成功');
+            const addModalElement = document.getElementById('addModal');
+            const addModal = bootstrap.Modal.getInstance(addModalElement);
             addModal.hide();
+            // 在模態框隱藏後調用 onModalHidden 函數
+            addModalElement.addEventListener('hidden.bs.modal', window.onModalHidden);
         } else {
             alert('預定失敗');
         }
     });
 }
 
-const addModal = new bootstrap.Modal('#addModal');
-const modal = document.querySelector("#addModal");
-modal.addEventListener('hidden.bs.modal', event => {
-    addModal.dispose();
-    $('.modal-backdrop').remove();
-    $('body').removeClass('modal-open');
-});
-addModal.show();
-</script> -->
+</script>
