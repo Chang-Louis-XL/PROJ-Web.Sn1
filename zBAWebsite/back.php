@@ -10,8 +10,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     <!--========== BOX ICONS ==========-->
-     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <!--========== BOX ICONS ==========-->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <title>back</title>
 </head>
 
@@ -22,11 +22,11 @@
     }
 
     .main {
-        height: 70vh;
+        height: 80vh;
     }
 
     .nav {
-        height: 70vh;
+        height: 80vh;
     }
 </style>
 
@@ -42,12 +42,10 @@
         }
         ?>
     </span>
-    <div class="container container-h d-flex justify-content-center align-items-center mt-3">
-
-        <div class="row border border-1 w-100 d-flex justify-content-center align-items-center text-center">
-            <div
-                class="col-12 col-lg-2 mt-3 mb-3 border border-1 h-100 d-flex justify-content-center align-items-center">
-                <ul class="nav flex-column text-center d-flex justify-content-center align-items-center">
+    <div class="container-fluid container-h d-flex justify-content-center align-items-center mt-5">
+        <div class="row w-75 d-flex justify-content-center align-items-center text-center">
+            <div class="col-12 col-lg-2 border border-1  d-flex justify-content-center align-items-center">
+                <ul class="nav flex-column d-flex justify-content-center">
                     <li class="nav-item">
                         <a class="nav-link" href="?do=Home">Home</a>
                     </li>
@@ -71,12 +69,11 @@
                         <a class="nav-link" href="?do=Product">Product</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?do=Contact">Contact us</a>
+                        <a class="nav-link" href="?do=Contect">Contact us</a>
                     </li>
                 </ul>
             </div>
-            <div
-                class="col-12 col-lg-10 mt-3 mb-3 border border-1 main d-flex justify-content-center align-items-center">
+            <div class="col-12 col-lg-10 main border border-1  d-flex justify-content-center align-items-center">
 
                 <?php
                 $do = $_GET['do'] ?? 'Home';
@@ -84,7 +81,7 @@
                 if (file_exists($file)) {
                     include $file;
                 } else {
-                    include "./backend/home.php";
+                    include "./backend/Home.php";
                 }
                 ?>
 

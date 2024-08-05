@@ -22,16 +22,17 @@
                             <?= $row['svg']; ?>
                         </td>
                         <td class="text-center align-middle w-50">
-                                <h3 class="menu__name"><?= $row['text1']; ?></h3>
-                                <p class="menu__detail"><?= $row['text2']; ?></p>
+                            <h3 class="menu__name"><?= $row['text1']; ?></h3>
+                            <p class="menu__detail"><?= $row['text2']; ?></p>
                         </td>
                         <td class="text-center align-middle">
                             <input type="hidden" name="table" value="<?= $do; ?>">
                             <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
-                            <input type="checkbox" aria-label="checkbox button for following text input" name="sh[]"
-                                id="checkbox_<?= $row['id']; ?>" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>顯示
+                            <button class="show btn btn-primary" data-do="Offering"
+                                data-id="<?= $row['id']; ?>"><?= ($row['sh'] == 1) ? '顯示' : '隱藏'; ?>
+                            </button>
                             <button type="button" class="btn btn-warning"
-                                onclick="editRow(<?= htmlspecialchars(json_encode($row)); ?>, 'checkbox_<?= $row['id']; ?>')">Edit</button>
+                                onclick="editRow(<?= htmlspecialchars(json_encode($row)); ?>)">Edit</button>
                             <button type="button" class="btn btn-danger"
                                 onclick=" del('Offering',<?= $row['id']; ?>)">Del</button>
                         </td>
@@ -46,9 +47,7 @@
 
 <script>
 
-    function editRow(rowData, checkboxId) {
-        const checkbox = document.getElementById(checkboxId);
-        rowData.sh = checkbox.checked ? 1 : 0;
+    function editRow(rowData) {
         console.log(rowData);
         const params = new URLSearchParams(rowData).toString();
         console.log(rowData);
@@ -56,6 +55,25 @@
         console.log(url);
         $('#modal').load(url);
     }
+
+    $(".show").on("click", function () {
+        $.post("./api/show.php", {
+            id: $(this).data("id"),
+            do: $(this).data("do")
+        }, () => {
+            
+            // location.reload();
+           
+            switch ($(this).text()) {
+                case '顯示':
+                    $(this).text('隱藏')
+                    break;
+                case '隱藏':
+                    $(this).text('顯示')
+                    break;
+            }
+        })
+    })
 
 
     function del(table, id) {

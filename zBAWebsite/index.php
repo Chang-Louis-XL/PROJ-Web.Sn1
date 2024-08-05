@@ -10,6 +10,8 @@
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
     <!--========== CSS ==========-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
@@ -26,7 +28,7 @@
     <!--========== HEADER ==========-->
     <header class="l-header" id="header">
         <nav class="nav bd-container">
-            <a href="#" class="nav__logo">Wallis`s</a>
+            <a href="#" class="nav__logo">Louis`s</a>
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
@@ -36,13 +38,37 @@
                     <li class="nav__item"><a href="#contact" class="nav__link">Contact us</a></li>
                     <!--========== LOGIN ==========-->
                     <?php
-                    if (isset($_SESSION['user'])) {
-                        echo "<li><i onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out change-theme'></i></li>";
-                        echo "<li><i onclick='location.href=&#39;./back.php&#39;' class='bx bx-cog change-theme'></i></li>";
-                        // echo "<button onclick='location.href=&#39;./api/logout.php&#39;'>登出</button>";
-                    } else {
+
+                    // if (isset($_SESSION['user'])) {
+                    //     echo "<li><i id='logoutButton' onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out change-theme '></i></li>";
+                    //     echo "<li><i id='cog' onclick='location.href=&#39;./back.php&#39;' class='bx bx-cog change-theme'></i></li>";
+                    //     // echo "<button onclick='location.href=&#39;./api/logout.php&#39;'>登出</button>";
+                    // } else {
+                    //     echo "<li><i id='loginButton' class='bx bx-user change-theme' onclick=\"$('#loginContainer').load('./backend/login.php')\"></i></li>";
+                    // }
+                    
+                    if (isset($_SESSION['user']) && $_SESSION['user'] === 'admin') {
+                        echo "<li><i id='logoutButton' onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out change-theme '></i></li>";
+                        echo "<li><i id='cog' onclick='location.href=&#39;./back.php&#39;' class='bx bx-cog change-theme'></i></li>";
+                    } else if (!isset($_SESSION['user'])) {
                         echo "<li><i id='loginButton' class='bx bx-user change-theme' onclick=\"$('#loginContainer').load('./backend/login.php')\"></i></li>";
+                    } else {
+                        echo "<li><i id='logoutButton' onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out change-theme '></i></li>";
                     }
+
+
+                    // if (isset($_SESSION['user']) && is_array($_SESSION['user']) && $_SESSION['user']['acc'] === 'admin') {
+                    //     echo "<li><i id='logoutButton' onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out change-theme '></i></li>";
+                    //     echo "<li><i id='cog' onclick='location.href=&#39;./back.php&#39;' class='bx bx-cog change-theme'></i></li>";
+                    // } else {
+                    //     echo "<li><i id='logoutButton' onclick='location.href=&#39;./api/logout.php&#39;' class='bx bx-log-out change-theme '></i></li>";
+                    // }
+                    
+                    // if (!isset($_SESSION['user'])) {
+                    //     echo "<li><i id='loginButton' class='bx bx-user change-theme' onclick=\"$('#loginContainer').load('./backend/login.php')\"></i></li>";
+                    // }
+                    
+
                     ?>
                     <div id="loginContainer"></div>
                     <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
@@ -72,14 +98,14 @@
 
 
         <!--========== ABOUT ==========-->
-        <?php $about = $About->find(['sh' => 1]) ;?>
+        <?php $about = $About->find(['sh' => 1]) ?>
         <section class="about section bd-container" id="about">
             <div class="about__container  bd-grid">
                 <div class="about__data">
                     <span class="section-subtitle about__initial">About us</span>
                     <h2 class="section-title about__initial"><?= $about['text1']; ?></h2>
                     <p class="about__description"><?= $about['text2']; ?></p>
-                    <a href="#" class="button">Explore history</a>
+                    <!-- <a href="#" class="button">Explore history</a> -->
                 </div>
 
                 <img src="./assets/img/<?= $about['img']; ?>" alt="" class="about__img">
@@ -142,8 +168,7 @@
                         <a href="#"><img src="assets/img/app2.png" alt="" class="app__store"></a>
                     </div>
                 </div>
-                <img src="./assets/img/<?= $profolio['img']; ?>"
-                    alt="" class="app__img">
+                <img src="./assets/img/<?= $profolio['img']; ?>" alt="" class="app__img">
             </div>
         </section>
         <!--========== Product ==========-->
@@ -176,27 +201,35 @@
         </section>
 
         <!--========== CONTACT US ==========-->
+        <?php
+                $contects = $Contect->all();
+                foreach ($contects as $contect) {
+                    ?>
         <section class="contact section bd-container" id="contact">
             <div class="contact__container bd-grid">
                 <div class="contact__data">
                     <span class="section-subtitle contact__initial">Let's talk</span>
-                    <h2 class="section-title contact__initial">Contact us</h2>
-                    <p class="contact__description">Please fill out the following information so we can arrange a dedicated service representative for you.</p>
+                    <h2 class="section-title contact__initial"><?= $contect['title']; ?></h2>
+                    <p class="contact__description"><?= $contect['detailed']; ?></p>
                 </div>
-
+                <?php } ?>
                 <div class="contact__button">
-                    <a href="#" class="button">Contact us now</a>
+
+                    <!-- <button onclick="loadBookView()" class="button" style="border: none;">Contact us now</button> -->
+                    <!-- <button id="contactButton" class="button" style="border: none;">Contact us now</button> -->
+                    <button class="button" style="border: none;" onclick="$('#BookView').load('./backend/book.php')">Contact us now</button>
                 </div>
             </div>
         </section>
     </main>
+    <div id="BookView"></div>
 
     <!--========== FOOTER ==========-->
     <footer class="footer section bd-container">
         <div class="footer__container bd-grid">
             <div class="footer__content">
-                <a href="#" class="footer__logo">Accessories</a>
-                <span class="footer__description">Louis`s</span>
+            <a href="#" class="footer__logo">Accessories</a>
+            <span class="footer__description">Louis`s</span>
                 <div>
                     <a href="#" class="footer__social"><i class='bx bxl-facebook'></i></a>
                     <a href="#" class="footer__social"><i class='bx bxl-instagram'></i></a>

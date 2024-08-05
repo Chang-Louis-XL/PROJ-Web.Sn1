@@ -1,11 +1,8 @@
-<div class="container w-100 h-100 overflow-auto">
-
-     
-    <button type="button" class="btn btn-primary d-flex justify-content-start mb-2" id="addButton">新增圖片</button>
-    <div id="modal"></div>
-
+<div class="container w-100 h-100 mt-3 overflow-auto">
 
     <table class="table">
+        <button type="button" class="btn btn-primary d-flex justify-content-start mb-2" id="addButton">新增圖片</button>
+        <div id="modal"></div>
         <thead class="table-light">
             <tr>
                 <th>圖片</th>
@@ -14,6 +11,8 @@
 
             </tr>
         </thead>
+
+
         <tbody>
             <?php
             $rows = ${$do}->all();
@@ -34,14 +33,14 @@
                     </td>
                     <td class="text-center align-middle">
                         <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
-                        <input type="checkbox" aria-label="checkbox button for following text input" name="sh[]"
-                            id="checkbox_<?= $row['id']; ?>" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>顯示
+                        <button class="show btn btn-primary" data-do="Product"
+                            data-id="<?= $row['id']; ?>"><?= ($row['sh'] == 1) ? '顯示' : '隱藏'; ?>
+                        </button>
                         <button type="button" class="btn btn-warning"
-                            onclick="editRow(<?= htmlspecialchars(json_encode($row)); ?>, 'checkbox_<?= $row['id']; ?>')">Edit</button>
+                        onclick="editRow(<?= htmlspecialchars(json_encode($row)); ?>)">Edit</button>
                         <button type="button" class="btn btn-danger"
                             onclick=" del('Product',<?= $row['id']; ?>)">Del</button>
                     </td>
-
                 </tr>
             <?php } ?>
         </tbody>
@@ -51,9 +50,7 @@
 
 <script>
 
-    function editRow(rowData, checkboxId) {
-        const checkbox = document.getElementById(checkboxId);
-        rowData.sh = checkbox.checked ? 1 : 0;
+function editRow(rowData) {
         console.log(rowData);
         const params = new URLSearchParams(rowData).toString();
         console.log(rowData);
@@ -62,6 +59,24 @@
         $('#modal').load(url);
     }
 
+    $(".show").on("click", function () {
+        $.post("./api/show.php", {
+            id: $(this).data("id"),
+            do: $(this).data("do")
+        }, () => {
+
+            // location.reload();
+
+            switch ($(this).text()) {
+                case '顯示':
+                    $(this).text('隱藏')
+                    break;
+                case '隱藏':
+                    $(this).text('顯示')
+                    break;
+            }
+        })
+    })
 
     // function editRow(rowData) {
     //     console.log(rowData);
@@ -101,5 +116,5 @@
             location.reload();
         })
     }
-    
+
 </script>

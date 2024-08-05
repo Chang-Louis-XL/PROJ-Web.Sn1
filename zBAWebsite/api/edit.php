@@ -3,6 +3,8 @@ include_once "base.php";
 $do = $_POST['table'];
 $db = ${$do};
 
+dd($_POST);
+
 foreach ($_POST['id'] as $key => $id) {
     if (!empty($_POST['del']) && in_array($id, $_POST['del'])) {
         $db->del($id);
@@ -28,6 +30,10 @@ foreach ($_POST['id'] as $key => $id) {
                 $row['sh'] = (isset($_POST['sh']) && $_POST['sh'] == $id) ? 1 : 0;
                 $row['text1'] = $_POST['text1'][$key];
                 $row['text2'] = $_POST['text2'][$key];
+                break;
+            case 'Contect':
+                $row['title'] = $_POST['title'][$key];
+                $row['detailed'] = $_POST['detailed'][$key];
                 break;
 
         }

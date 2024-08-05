@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-07-28 17:34:38
+-- 產生時間： 2024-08-05 14:19:50
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.2.12
 
@@ -45,12 +45,54 @@ INSERT INTO `n1-about` (`id`, `img`, `text1`, `text2`, `sh`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 資料表結構 `n1-book`
+--
+
+CREATE TABLE `n1-book` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` text NOT NULL,
+  `phone` text DEFAULT NULL,
+  `email` text DEFAULT NULL,
+  `datetime` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- 傾印資料表的資料 `n1-book`
+--
+
+INSERT INTO `n1-book` (`id`, `name`, `phone`, `email`, `datetime`) VALUES
+(1, '張曉天', '0900-000-000', '5145@labor.gov.tw', '2024-08-29'),
+(2, '陳大名', '0911-111-111', 'dsafdsf@gmail.com', '2024-09-07'),
+(3, 'sd', 'asd', 'asd', '2024-08-14');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `n1-contect`
+--
+
+CREATE TABLE `n1-contect` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `title` text NOT NULL,
+  `detailed` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- 傾印資料表的資料 `n1-contect`
+--
+
+INSERT INTO `n1-contect` (`id`, `title`, `detailed`) VALUES
+(1, 'Contact us', 'Please fill out the following information so we can arrange a dedicated service representative for you.');
+
+-- --------------------------------------------------------
+
+--
 -- 資料表結構 `n1-home`
 --
 
 CREATE TABLE `n1-home` (
   `id` int(10) UNSIGNED NOT NULL,
-  `img` text NOT NULL,
+  `img` text DEFAULT NULL,
   `text1` text NOT NULL,
   `text2` text NOT NULL,
   `sh` int(1) UNSIGNED NOT NULL
@@ -107,7 +149,6 @@ CREATE TABLE `n1-product` (
 --
 
 INSERT INTO `n1-product` (`id`, `img`, `menu_name`, `menu_detail`, `menu_preci`, `sh`) VALUES
-(1, 'p1.png', 'silver ring', 'Details', '$22.00', 1),
 (6, 'p3.png', 'silver ring', 'Details', '$18.00', 1),
 (7, 'p4.png', 'silver ring', 'Details', '$20.00', 1),
 (8, 'p1.png', 'silver ring', ' Details', '$20.00', 1),
@@ -155,7 +196,12 @@ INSERT INTO `n1-users` (`id`, `acc`, `pw`, `email`) VALUES
 (1, 'admin', '1234', 'admin@labor.gov.tw'),
 (3, 'mem01', 'mem01', 'mem01@labor.gov.tw'),
 (4, 'mem02', 'mem02', 'mem02@labor.gov.tw'),
-(9, '31321', '123', 'daffsdaf');
+(9, '31321', '123', 'daffsdaf'),
+(0, 'momomo', 'momomo', 'momomo'),
+(0, 'asdsad', 'asdsad', 'asdsad'),
+(0, 'asdsad123', 'asdsad123', 'asdsad123'),
+(0, 'momomo1', 'momomo1', 'momomo1'),
+(0, 'momoooo', 'momoooo', 'momoooo');
 
 --
 -- 已傾印資料表的索引
@@ -165,6 +211,18 @@ INSERT INTO `n1-users` (`id`, `acc`, `pw`, `email`) VALUES
 -- 資料表索引 `n1-about`
 --
 ALTER TABLE `n1-about`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 資料表索引 `n1-book`
+--
+ALTER TABLE `n1-book`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 資料表索引 `n1-contect`
+--
+ALTER TABLE `n1-contect`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -202,10 +260,22 @@ ALTER TABLE `n1-about`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- 使用資料表自動遞增(AUTO_INCREMENT) `n1-book`
+--
+ALTER TABLE `n1-book`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `n1-contect`
+--
+ALTER TABLE `n1-contect`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- 使用資料表自動遞增(AUTO_INCREMENT) `n1-home`
 --
 ALTER TABLE `n1-home`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `n1-offering`
