@@ -69,7 +69,7 @@
                         <a class="nav-link" href="?do=Product">Product</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?do=Contact">Contact us</a>
+                        <a class="nav-link" href="?do=Contect">Contact us</a>
                     </li>
                 </ul>
             </div>

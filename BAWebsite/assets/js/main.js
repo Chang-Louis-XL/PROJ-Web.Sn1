@@ -114,6 +114,10 @@ $(document).ready(function() {
       });
   });
 
+
+
+
+
   // 當按下忘記密碼按鈕時，動態加載forgot.php並顯示彈出視窗
   $(document).on('click', '#forgotButton', function() {
       $("#loginContainer").load('./backend/forgot.php', function() {
@@ -156,36 +160,37 @@ $(document).ready(function() {
 
 /*==================== BOOKING ====================*/ 
 
+let addModal,modal;
 
-$(document).ready(function() {
-    $("#contactButton").click(function() {
-        loadBookView();
-    });
-});
+// $(document).ready(function() {
+//     $("#contactButton").click(function() {
+//         loadBookView();
+//     });
+// });
 
-function loadBookView() {
-    $('#BookView').load('./backend/book.php', function() {
-        const addModalElement = document.getElementById('addModal');
-        if (!addModalElement) {
-            console.error('Modal element not found');
-            return;
-        }
-        const addModal = new bootstrap.Modal(addModalElement);
-        addModal.show();
+// function loadBookView() {
+//     $('#BookView').load('./backend/book.php', function() {
+//         const addModalElement = document.getElementById('addModal');
+//         if (!addModalElement) {
+//             console.error('Modal element not found');
+//             return;
+//         }
+//         const addModal = new bootstrap.Modal(addModalElement);
+//         addModal.show();
 
-        addModalElement.addEventListener('hidden.bs.modal', onModalHidden);
+//         addModalElement.addEventListener('hidden.bs.modal', onModalHidden);
 
-        function onModalHidden() {
-            addModal.dispose();
-            $('#BookView').empty();
-            $('.modal-backdrop').remove();
-            $('body').removeClass('modal-open').css('padding-right', '');
-        }
+//         function onModalHidden() {
+//             addModal.dispose();
+//             $('#BookView').empty();
+//             $('.modal-backdrop').remove();
+//             $('body').removeClass('modal-open').css('padding-right', '');
+//         }
 
-        // 使 onModalHidden 可在外部調用
-        window.onModalHidden = onModalHidden;
-    });
-}
+//         // 使 onModalHidden 可在外部調用
+//         window.onModalHidden = onModalHidden;
+//     });
+// }
 
 
 /*==================== DARK LIGHT THEME ====================*/ 
@@ -235,3 +240,5 @@ sr.reveal(`.home__data, .home__img,
             .footer__content`, {
     interval: 200
 })
+
+

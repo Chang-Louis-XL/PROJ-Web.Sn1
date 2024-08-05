@@ -1,7 +1,7 @@
 
     <style>
         /* Modal styles */
-        .modal {
+        /* .modal {
             display: none; 
             position: fixed; 
             z-index: 1; 
@@ -71,10 +71,10 @@
 
         .error {
             color: red;
-        }
+        } */
     </style>
 
-    <div id="regModal" class="modal">
+    <!-- <div id="regModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <fieldset>
@@ -109,7 +109,47 @@
                 </table>
             </fieldset>
         </div>
+    </div> -->
+
+
+    <div id="regModal" class="modal" tabindex="-1" role="dialog" style="display:none;">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">會員註冊</h5>
+        <button type="button" class="btn-close close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <fieldset>
+            <legend>會員註冊</legend>
+            <div style="color:red">*請設定您要註冊的帳號及密碼（最多12個字元）</div>
+            <div class="mb-3">
+              <label for="acc" class="form-label">Step1：登入帳號</label>
+              <input type="text" class="form-control" name="acc" id="acc">
+            </div>
+            <div class="mb-3">
+              <label for="pw" class="form-label">Step2：登入密碼</label>
+              <input type="password" class="form-control" name="pw" id="pw">
+            </div>
+            <div class="mb-3">
+              <label for="pw2" class="form-label">Step3：再次確認密碼</label>
+              <input type="password" class="form-control" name="pw2" id="pw2">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Step4：信箱(忘記密碼時使用)</label>
+              <input type="text" class="form-control" name="email" id="email">
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button type="button" class="btn btn-primary" onclick="reg()">註冊</button>
+              <button type="button" class="btn btn-secondary" onclick="clear()">清除</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
     </div>
+  </div>
+</div>
 
     <script>
         function reg() {

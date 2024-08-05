@@ -105,7 +105,7 @@
                     <span class="section-subtitle about__initial">About us</span>
                     <h2 class="section-title about__initial"><?= $about['text1']; ?></h2>
                     <p class="about__description"><?= $about['text2']; ?></p>
-                    <a href="#" class="button">Explore history</a>
+                    <!-- <a href="#" class="button">Explore history</a> -->
                 </div>
 
                 <img src="./assets/img/<?= $about['img']; ?>" alt="" class="about__img">
@@ -201,20 +201,23 @@
         </section>
 
         <!--========== CONTACT US ==========-->
+        <?php
+                $contects = $Contect->all();
+                foreach ($contects as $contect) {
+                    ?>
         <section class="contact section bd-container" id="contact">
             <div class="contact__container bd-grid">
                 <div class="contact__data">
                     <span class="section-subtitle contact__initial">Let's talk</span>
-                    <h2 class="section-title contact__initial">Contact us</h2>
-                    <p class="contact__description">Please fill out the following information so we can arrange a
-                        dedicated service representative for you.</p>
+                    <h2 class="section-title contact__initial"><?= $contect['title']; ?></h2>
+                    <p class="contact__description"><?= $contect['detailed']; ?></p>
                 </div>
-
+                <?php } ?>
                 <div class="contact__button">
 
                     <!-- <button onclick="loadBookView()" class="button" style="border: none;">Contact us now</button> -->
-                    <button id="contactButton" class="button" style="border: none;">Contact us now</button>
-                    <!-- <button class="button" style="border: none;" onclick="$('#BookView').load('./backend/book.php')">Contact us now</button> -->
+                    <!-- <button id="contactButton" class="button" style="border: none;">Contact us now</button> -->
+                    <button class="button" style="border: none;" onclick="$('#BookView').load('./backend/book.php')">Contact us now</button>
                 </div>
             </div>
         </section>
@@ -225,8 +228,8 @@
     <footer class="footer section bd-container">
         <div class="footer__container bd-grid">
             <div class="footer__content">
-                <a href="#" class="footer__logo">Tasty Food</a>
-                <span class="footer__description">Restaurant</span>
+            <a href="#" class="footer__logo">Accessories</a>
+            <span class="footer__description">Louis`s</span>
                 <div>
                     <a href="#" class="footer__social"><i class='bx bxl-facebook'></i></a>
                     <a href="#" class="footer__social"><i class='bx bxl-instagram'></i></a>

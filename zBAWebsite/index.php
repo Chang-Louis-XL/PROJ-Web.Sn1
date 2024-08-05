@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <title>Wallis`s BAWebsite</title>
+    <title>Louis`s BAWebsite</title>
 </head>
 
 <body>
@@ -195,8 +195,8 @@
     <footer class="footer section bd-container">
         <div class="footer__container bd-grid">
             <div class="footer__content">
-                <a href="#" class="footer__logo">Tasty Food</a>
-                <span class="footer__description">Restaurant</span>
+                <a href="#" class="footer__logo">Accessories</a>
+                <span class="footer__description">Louis`s</span>
                 <div>
                     <a href="#" class="footer__social"><i class='bx bxl-facebook'></i></a>
                     <a href="#" class="footer__social"><i class='bx bxl-instagram'></i></a>

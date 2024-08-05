@@ -1,7 +1,7 @@
 <style>
         /*========== forgot ==========*/
         /* Modal styles */
-        .modal {
+        /* .modal {
             display: none; 
             position: fixed; 
             z-index: 1; 
@@ -34,10 +34,10 @@
             color: black;
             text-decoration: none;
             cursor: pointer;
-        }
+        } */
     </style>
 
-    <div id="forgotModal" class="modal">
+    <!-- <div id="forgotModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <fieldset>
@@ -48,7 +48,30 @@
                 <div><button onclick="find()">尋找</button></div>
             </fieldset>
         </div>
+    </div> -->
+
+    <div id="forgotModal" class="modal" tabindex="-1" role="dialog" style="display:none;">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="forgotModalLabel">忘記密碼</h5>
+        <button type="button" class="btn-close close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="email" class="form-label">請輸入信箱以查詢密碼</label>
+            <input type="text" class="form-control" name="email" id="email" placeholder="輸入信箱">
+          </div>
+          <div id="result" class="mb-3"></div>
+          <div class="d-grid">
+            <button type="button" class="btn btn-primary" onclick="find()">尋找</button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
+</div>
 
     <script>
         function find() {

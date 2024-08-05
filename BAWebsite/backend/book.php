@@ -1,4 +1,4 @@
-<!-- <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -49,21 +49,22 @@
         })
     }
 
-    const addModal = new bootstrap.Modal('#addModal')
-    const modal = document.querySelector("#addModal")
+    addModal = new bootstrap.Modal('#addModal')
+    modal = document.querySelector("#addModal")
     modal.addEventListener('hidden.bs.modal', event => {
 
         addModal.dispose()
-        $("#modal").html("")
+        $("#BookView").html("")
+
 
     })
     //console.log(addModal)
     addModal.show()
 </script>
- -->
 
 
- <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+
+ <!-- <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -119,4 +120,4 @@ function send() {
     });
 }
 
-</script>
+</script> -->
