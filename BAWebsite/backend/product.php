@@ -37,7 +37,7 @@
                             data-id="<?= $row['id']; ?>"><?= ($row['sh'] == 1) ? '顯示' : '隱藏'; ?>
                         </button>
                         <button type="button" class="btn btn-warning"
-                            onclick="editRow(<?= htmlspecialchars(json_encode($row)); ?>, 'checkbox_<?= $row['id']; ?>')">Edit</button>
+                        onclick="editRow(<?= htmlspecialchars(json_encode($row)); ?>)">Edit</button>
                         <button type="button" class="btn btn-danger"
                             onclick=" del('Product',<?= $row['id']; ?>)">Del</button>
                     </td>
@@ -50,9 +50,7 @@
 
 <script>
 
-    function editRow(rowData, checkboxId) {
-        const checkbox = document.getElementById(checkboxId);
-        rowData.sh = checkbox.checked ? 1 : 0;
+function editRow(rowData) {
         console.log(rowData);
         const params = new URLSearchParams(rowData).toString();
         console.log(rowData);
