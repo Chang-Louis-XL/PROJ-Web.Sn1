@@ -32,20 +32,22 @@
 
 <body>
     <a href="index.php">回首頁</a>
-    <span style="width:18%; display:inline-block;">
-  
+    
 
-
-<?php
-    if (isset($_SESSION['user'])) {
-        echo "歡迎，{$_SESSION['user']}";
-        echo "<button onclick='location.href=&#39;./api/logout.php&#39;'>登出</button>";
-    } else {
-        header('Location: https://wda.mackliu.com/s1130106/zBAWebsite/index.php');
-        exit(); // 確保腳本在重定向後停止執行
-    }
-    ?>
-    </span>
+        <span style="width:18%; display:inline-block;">
+            <?php
+            if (isset($_SESSION['user'])) {
+                echo "歡迎，{$_SESSION['user']} <button onclick='location.href=&#39;./api/logout.php&#39;'>登出</button>";
+            } else {
+                echo "<script>
+                alert('請先登入會員');
+                window.location.href='https://wda.mackliu.com/s1130106/zBAWebsite/index.php';
+              </script>";
+                exit(); // 確保腳本在重定向後停止執行
+            }
+            ?>
+        </span>
+   
     <div class="container-fluid container-h d-flex justify-content-center align-items-center mt-5">
         <div class="row w-75 d-flex justify-content-center align-items-center text-center">
             <div class="col-12 col-lg-2 border border-1  d-flex justify-content-center align-items-center">
@@ -75,6 +77,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="?do=Contect">Contact us</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?do=Account">Account</a>
+                    </li>
                 </ul>
             </div>
             <div class="col-12 col-lg-10 main border border-1  d-flex justify-content-center align-items-center">
@@ -85,7 +90,10 @@
                 if (file_exists($file)) {
                     include $file;
                 } else {
-                    include "./backend/Home.php";
+                    // include "./backend/Home.php";
+                    header('Location: https://wda.mackliu.com/s1130106/zBAWebsite/index.php');
+                    exit(); // 確保腳本在重定向後停止執行
+                
                 }
                 ?>
 

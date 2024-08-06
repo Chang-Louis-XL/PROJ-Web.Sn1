@@ -67,7 +67,7 @@
                         ?>
                         <tr>
                             <td> <?= $row['name']; ?> </td>
-                            <td> <?= $row['phone']; ?> </td>
+                            <td> <?= $row['Phone']; ?> </td>
                             <td> <?= $row['email']; ?> </td>
                             <td>
                                 <?php
@@ -87,7 +87,7 @@
     </div>
 </div>
 
-</div>
+
 
 <script>
 
