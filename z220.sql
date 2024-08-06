@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-08-05 14:19:50
+-- 產生時間： 2024-08-06 14:46:20
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.2.12
 
@@ -50,39 +50,32 @@ INSERT INTO `n1-about` (`id`, `img`, `text1`, `text2`, `sh`) VALUES
 
 CREATE TABLE `n1-book` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` text NOT NULL,
   `phone` text DEFAULT NULL,
   `email` text DEFAULT NULL,
-  `datetime` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `datetime` text DEFAULT NULL,
+  `name` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `n1-book`
 --
 
-INSERT INTO `n1-book` (`id`, `name`, `phone`, `email`, `datetime`) VALUES
-(1, '張曉天', '0900-000-000', '5145@labor.gov.tw', '2024-08-29'),
-(2, '陳大名', '0911-111-111', 'dsafdsf@gmail.com', '2024-09-07'),
-(3, 'sd', 'asd', 'asd', '2024-08-14');
+INSERT INTO `n1-book` (`id`, `phone`, `email`, `datetime`, `name`) VALUES
+(1, '0900-000-000', 'sk@gmail.com', '2024-08-20T20:09', '王大明'),
+(3, '0911-111-111', 'dsadas@gmail.com', '2024-08-24T20:39', '陳阿明'),
+(4, '0922-222-222', 'dfs@gmail.com', '2024-08-28T20:40', '林志明');
 
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `n1-contect`
+-- 資料表結構 `n1-contact`
 --
 
-CREATE TABLE `n1-contect` (
+CREATE TABLE `n1-contact` (
   `id` int(10) UNSIGNED NOT NULL,
-  `title` text NOT NULL,
-  `detailed` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- 傾印資料表的資料 `n1-contect`
---
-
-INSERT INTO `n1-contect` (`id`, `title`, `detailed`) VALUES
-(1, 'Contact us', 'Please fill out the following information so we can arrange a dedicated service representative for you.');
+  `text1` text NOT NULL,
+  `text2` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -92,7 +85,7 @@ INSERT INTO `n1-contect` (`id`, `title`, `detailed`) VALUES
 
 CREATE TABLE `n1-home` (
   `id` int(10) UNSIGNED NOT NULL,
-  `img` text DEFAULT NULL,
+  `img` text NOT NULL,
   `text1` text NOT NULL,
   `text2` text NOT NULL,
   `sh` int(1) UNSIGNED NOT NULL
@@ -149,6 +142,7 @@ CREATE TABLE `n1-product` (
 --
 
 INSERT INTO `n1-product` (`id`, `img`, `menu_name`, `menu_detail`, `menu_preci`, `sh`) VALUES
+(1, 'p1.png', 'silver ring', 'Details', '$22.00', 1),
 (6, 'p3.png', 'silver ring', 'Details', '$18.00', 1),
 (7, 'p4.png', 'silver ring', 'Details', '$20.00', 1),
 (8, 'p1.png', 'silver ring', ' Details', '$20.00', 1),
@@ -196,12 +190,7 @@ INSERT INTO `n1-users` (`id`, `acc`, `pw`, `email`) VALUES
 (1, 'admin', '1234', 'admin@labor.gov.tw'),
 (3, 'mem01', 'mem01', 'mem01@labor.gov.tw'),
 (4, 'mem02', 'mem02', 'mem02@labor.gov.tw'),
-(9, '31321', '123', 'daffsdaf'),
-(0, 'momomo', 'momomo', 'momomo'),
-(0, 'asdsad', 'asdsad', 'asdsad'),
-(0, 'asdsad123', 'asdsad123', 'asdsad123'),
-(0, 'momomo1', 'momomo1', 'momomo1'),
-(0, 'momoooo', 'momoooo', 'momoooo');
+(9, '31321', '123', 'daffsdaf');
 
 --
 -- 已傾印資料表的索引
@@ -220,9 +209,9 @@ ALTER TABLE `n1-book`
   ADD PRIMARY KEY (`id`);
 
 --
--- 資料表索引 `n1-contect`
+-- 資料表索引 `n1-contact`
 --
-ALTER TABLE `n1-contect`
+ALTER TABLE `n1-contact`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -263,19 +252,19 @@ ALTER TABLE `n1-about`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `n1-book`
 --
 ALTER TABLE `n1-book`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `n1-contect`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `n1-contact`
 --
-ALTER TABLE `n1-contect`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `n1-contact`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `n1-home`
 --
 ALTER TABLE `n1-home`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `n1-offering`
@@ -287,7 +276,7 @@ ALTER TABLE `n1-offering`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `n1-product`
 --
 ALTER TABLE `n1-product`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `n1-profolio`
