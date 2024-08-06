@@ -1,0 +1,122 @@
+<img src="<?php echo isset($row['img']) && !empty($row['img']) ?'../assets/img/'. $row['img'] : 'https://via.placeholder.com/150'; ?>" alt="Placeholder Image" class="img-fluid" style='width:300px;height:30px' >
+
+<img src="../assets/img/<?= $row['img']; ?>" alt="Placeholder Image" class="img-fluid" style='width:300px;height:30px'>
+
+<img src="../assets/img/bk01.png" alt="Placeholder Image" class="img-fluid">
+
+
+<figcaption class="figure-caption text-end text-center">home backgrad-image
+</figcaption>
+<img src= "../assets/img/bk01.jpg" alt="Placeholder Image" class="img-fluid" style='width:50px;height:50px'>
+
+<div class="text-center">
+    <img src="./assets/img/bk01.jpg" class="rounded" alt="..." style='width:300px;height:300px'>
+</div>
+
+
+<button type="button" class="btn btn-primary d-flex justify-content-start" onclick="showModal()">新增圖片</button>
+<div id="modal"></div>
+
+<script>
+    function showModal() {
+        const modalContainer = document.getElementById('modal');
+        modalContainer.innerHTML = `
+        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="w-100 text-center">新增圖片</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class='form-group mx-auto col-6 mt-5' action="./api/add.php" method="post"
+                    enctype="multipart/form-data">
+                    <div class='d-flex my-2'>
+                        <label for="" class='col-3 form-label'>圖片</label>
+                        <input type="file" name="img">
+                    </div>
+                    <div class='d-flex my-2'>
+                        <label for="" class='col-3 form-label'>文字內容(1)</label>
+                        <input type="text" name="text1">
+                    </div>
+                    <div class='d-flex my-2'>
+                        <label for="" class='col-3 form-label'>文字內容(2)</label>
+                        <input type="text" name="text2">
+                    </div>
+                    <div>
+                        <input type="hidden" name="table" value="Home">
+                        <input type="submit" value="送出" class='btn btn-primary'>
+                        <input type="reset" value="重置" class='btn btn-warning'>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    `;
+
+        const addModal = new bootstrap.Modal(document.getElementById('addModal'));
+        const modalElement = document.getElementById('addModal');
+
+        modalElement.addEventListener('hidden.bs.modal', event => {
+            addModal.dispose();
+            modalContainer.innerHTML = "";
+        });
+
+        addModal.show();
+    }
+</script>
+
+
+
+<button type="button" class="btn btn-warning" onclick="$('#modal').load('./backend/add_form.php?do=Home&text1=<?=$row['text1'];?>&text2=<?=$row['text2'];?>&id=<?=$row['id'];?>&img=<?=$row['img'];?>')">Edit</button>
+
+
+<div class='d-flex my-2'>
+    <label for="" class='col-3 form-label'>圖片</label>
+    <input type="file" name="img"
+        value="<?php echo (isset($_GET['id']) && !empty($_GET['id'])) ? "../assets/img/{$_GET['img']}" : 'img'; ?>">
+</div>
+
+
+<?php echo (isset($_POST['img']) && !empty($_POST['img'])) ? $_POST['img'] : 'img'; ?>
+
+
+
+
+
+<tr>
+    <td class="text-center align-middle">
+        <img src="<?php echo isset($row['img']) && !empty($row['img']) ? './assets/img/' . $row['img'] : 'https://via.placeholder.com/300'; ?>"
+            alt="Placeholder Image" class="rounded" style='width:150px;height:150px'>
+    </td>
+
+    <td class="text-center align-middle">
+        <label for="textInput1" class="form-label">文字內容(1)</label>
+        <input type="text" name="text1[]" value="<?= $row['text1']; ?>" class="form-control"
+            id="textInput1" placeholder="內容(1)">
+        <label for="textInput2" class="form-label">文字內容(2)</label>
+        <input type="text" name="text2[]" value="<?= $row['text2']; ?>" class="form-control"
+            id="textInput2" placeholder="內容(1)">
+    </td>
+    <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+    <td class="text-center align-middle">
+    <input type="radio" name="sh" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>顯示
+    <button type="submit" class="btn btn-warning" onclick="$('#modal').load('./backend/add_form.php?do=Home')">Edit</button>
+    <button type="button" class="btn btn-danger" onclick=" del('Home',<?= $row['id']; ?>)">Del</button>
+    </td>
+</tr>
+
+
+
+
+
+
+
+
+
+<input type="checkbox" aria-label="checkbox button for following text input" name="sh[]"
+value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>>顯示
+<button type="button" class="btn btn-warning"
+onclick="editRow(<?= htmlspecialchars(json_encode($row)); ?>)">Edit</button>
+<button type="button" class="btn btn-danger"
