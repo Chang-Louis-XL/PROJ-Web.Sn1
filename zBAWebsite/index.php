@@ -163,7 +163,7 @@
 
     <!--========== FOOTER ==========-->
     <footer class="footer section bd-container">
-        <div class="footer__container bd-grid">
+        <!-- <div class="footer__container bd-grid">
             <div class="footer__content">
                 <a href="#" class="footer__logo">Accessories</a>
                 <span class="footer__description">Louis`s</span>
@@ -203,7 +203,7 @@
                     <li>tastyfood@email.com</li>
                 </ul>
             </div>
-        </div>
+        </div> -->
 
         <p class="footer__copy">&#169; 2020 Bedimcode. All right reserved</p>
     </footer>

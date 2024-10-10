@@ -1,4 +1,4 @@
-<div class="container w-100 h-100 overflow-auto  mt-3">
+<div class="container w-100 h-100 overflow-auto mt-3">
 
     <div id="modal"></div>
 
