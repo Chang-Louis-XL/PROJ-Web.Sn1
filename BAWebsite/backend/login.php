@@ -78,11 +78,11 @@
                 <form>
                     <div class="mb-3">
                         <label for="acc" class="form-label">帳號</label>
-                        <input type="text" class="form-control" id="acc" name="acc" placeholder="輸入帳號">
+                        <input type="text" class="form-control" id="acc" name="acc" placeholder="輸入帳號" value="admin">
                     </div>
                     <div class="mb-3">
                         <label for="pw" class="form-label">密碼</label>
-                        <input type="password" class="form-control" id="pw" name="pw" placeholder="輸入密碼">
+                        <input type="password" class="form-control" id="pw" name="pw" placeholder="輸入密碼" value="1234">
                     </div>
                     <div class="btn-group d-flex justify-content-center align-items-center" role="group" aria-label="Basic outlined example">
                         <button type="button" class="btn btn-outline-secondary" onclick="login()">登入</button>
