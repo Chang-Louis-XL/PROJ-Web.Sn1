@@ -1,49 +1,49 @@
 <!--========== HOME ==========-->
 <section class="home" id="home">
-            <?php $home = $Home->find(['sh' => 1]) ?>
+    <?php $home = $Home->find(['sh' => 1]) ?>
 
-            <div class="home__container  bd-grid" style="background-image: url(./assets/img/<?= $home['img']; ?>);">
-                <div class="home__data">
-                    <h2 class="home__title"><?= $home['text1']; ?></h2>
-                    <h2 class="home__subtitle"><?= $home['text2']; ?></h2>
-                    <!-- <a href="#" class="button">View Menu</a> -->
-                </div>
-                <!-- <img src="https://plus.unsplash.com/premium_photo-1668062993549-8167c11d6e7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWNjZXNzb3JpZXN8ZW58MHx8MHx8fDA%3D"
+    <div class="home__container  bd-grid" style="background-image: url(./assets/img/<?= $home['img']; ?>);">
+        <div class="home__data">
+            <h2 class="home__title"><?= $home['text1']; ?></h2>
+            <h2 class="home__subtitle"><?= $home['text2']; ?></h2>
+            <!-- <a href="#" class="button">View Menu</a> -->
+        </div>
+        <!-- <img src="https://plus.unsplash.com/premium_photo-1668062993549-8167c11d6e7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWNjZXNzb3JpZXN8ZW58MHx8MHx8fDA%3D"
                     alt="" class="home__img"> -->
+    </div>
+</section>
+
+
+<!--========== ABOUT ==========-->
+<?php $about = $About->find(['sh' => 1]) ?>
+<section class="about section bd-container" id="about">
+    <div class="about__container  bd-grid">
+        <div class="about__data">
+            <span class="section-subtitle about__initial">About us</span>
+            <h2 class="section-title about__initial"><?= $about['text1']; ?></h2>
+            <p class="about__description"><?= $about['text2']; ?></p>
+            <!-- <a href="#" class="button">Explore history</a> -->
+        </div>
+
+        <img src="./assets/img/<?= $about['img']; ?>" alt="" class="about__img">
+    </div>
+</section>
+
+<!--========== SERVICES ==========-->
+<section class="services section bd-container" id="services">
+    <span class="section-subtitle">Offering</span>
+    <h2 class="section-title">Our amazing services</h2>
+    <div class="services__container  bd-grid">
+        <?php $offerings = $Offering->all(['sh' => 1]);
+        foreach ($offerings as $offering) { ?>
+            <div class="services__content">
+                <?= $offering['svg']; ?>
+                <h3 class="services__title"><?= $offering['text1']; ?></h3>
+                <p class="services__description"><?= $offering['text2']; ?></p>
+
             </div>
-        </section>
-
-
-        <!--========== ABOUT ==========-->
-        <?php $about = $About->find(['sh' => 1]) ?>
-        <section class="about section bd-container" id="about">
-            <div class="about__container  bd-grid">
-                <div class="about__data">
-                    <span class="section-subtitle about__initial">About us</span>
-                    <h2 class="section-title about__initial"><?= $about['text1']; ?></h2>
-                    <p class="about__description"><?= $about['text2']; ?></p>
-                    <!-- <a href="#" class="button">Explore history</a> -->
-                </div>
-
-                <img src="./assets/img/<?= $about['img']; ?>" alt="" class="about__img">
-            </div>
-        </section>
-
-        <!--========== SERVICES ==========-->
-        <section class="services section bd-container" id="services">
-            <span class="section-subtitle">Offering</span>
-            <h2 class="section-title">Our amazing services</h2>
-            <div class="services__container  bd-grid">
-                <?php $offerings = $Offering->all(['sh' => 1]);
-                foreach ($offerings as $offering) { ?>
-                    <div class="services__content">
-                        <?= $offering['svg']; ?>
-                        <h3 class="services__title"><?= $offering['text1']; ?></h3>
-                        <p class="services__description"><?= $offering['text2']; ?></p>
-
-                    </div>
-                <?php } ?>
-                <!-- <div class="services__content">
+        <?php } ?>
+        <!-- <div class="services__content">
                     <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24"
                         style="fill: rgba(152, 157, 158);transform: msFilter">
                         <path
@@ -70,71 +70,71 @@
                     <p class="services__description">We offer our clients excellent quality services for many years,
                         with the best and delicious food in the city.</p>
                 </div> -->
+    </div>
+</section>
+<!--===== APP =======-->
+<?php $profolio = $Profolio->find(['sh' => 1]) ?>
+<section class="app section bd-container">
+    <div class="app__container bd-grid">
+        <div class="app__data">
+            <span class="section-subtitle app__initial">profolio</span>
+            <h2 class="section-title app__initial"><?= $profolio['text1']; ?></h2>
+            <p class="app__description"><?= $profolio['text2']; ?></p>
+            <div class="app__stores">
+                <a href="#"><img src="assets/img/app1.png" alt="" class="app__store"></a>
+                <a href="#"><img src="assets/img/app2.png" alt="" class="app__store"></a>
             </div>
-        </section>
-        <!--===== APP =======-->
-        <?php $profolio = $Profolio->find(['sh' => 1]) ?>
-        <section class="app section bd-container">
-            <div class="app__container bd-grid">
-                <div class="app__data">
-                    <span class="section-subtitle app__initial">profolio</span>
-                    <h2 class="section-title app__initial"><?= $profolio['text1']; ?></h2>
-                    <p class="app__description"><?= $profolio['text2']; ?></p>
-                    <div class="app__stores">
-                        <a href="#"><img src="assets/img/app1.png" alt="" class="app__store"></a>
-                        <a href="#"><img src="assets/img/app2.png" alt="" class="app__store"></a>
-                    </div>
-                </div>
-                <img src="./assets/img/<?= $profolio['img']; ?>" alt="" class="app__img">
+        </div>
+        <img src="./assets/img/<?= $profolio['img']; ?>" alt="" class="app__img">
+    </div>
+</section>
+<!--========== Product ==========-->
+<section class="menu section bd-container" id="menu">
+    <span class="section-subtitle">Product</span>
+    <h2 class="section-title">best-seller</h2>
+
+    <div class="menu__container bd-grid">
+        <?php
+        $products = $Product->all(['sh' => 1]);
+        foreach ($products as $product) {
+        ?>
+            <div class="menu__content">
+                <img src="assets/img/<?= $product['img']; ?>" alt="" class="menu__img">
+                <h3 class="menu__name"><?= $product['menu_name']; ?></h3>
+                <span class="menu__detail"><?= $product['menu_detail']; ?></span>
+                <span class="menu__preci"><?= $product['menu_preci']; ?></span>
+                <?php echo '<a href="?do=buycart" ' ?> class="button menu__button"><i class='bx bx-cart-alt'></i></a>
             </div>
-        </section>
-        <!--========== Product ==========-->
-        <section class="menu section bd-container" id="menu">
-            <span class="section-subtitle">Product</span>
-            <h2 class="section-title">best-seller</h2>
 
-            <div class="menu__container bd-grid">
-                <?php
-                $products = $Product->all(['sh' => 1]);
-                foreach ($products as $product) {
-                    ?>
-                    <div class="menu__content">
-                        <img src="assets/img/<?= $product['img']; ?>" alt="" class="menu__img">
-                        <h3 class="menu__name"><?= $product['menu_name']; ?></h3>
-                        <span class="menu__detail"><?= $product['menu_detail']; ?></span>
-                        <span class="menu__preci"><?= $product['menu_preci']; ?></span>
-                        <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a>
-                    </div>
-
-                    <!-- <div class="menu__content">
+            <!-- <div class="menu__content">
                         <img src="assets/img/p3.png" alt="" class="menu__img">
                         <h3 class="menu__name">Salad with fish</h3>
                         <span class="menu__detail">Delicious dish</span>
                         <span class="menu__preci">$12.00</span>
                         <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a>
                     </div> -->
-                <?php } ?>
-            </div>
-        </section>
+        <?php } ?>
+    </div>
+</section>
 
-        <!--========== CONTACT US ==========-->
-        <?php
-                $contects = $Contect->all();
-                foreach ($contects as $contect) {
-                    ?>
-        <section class="contact section bd-container" id="contact">
-            <div class="contact__container bd-grid">
-                <div class="contact__data">
-                    <span class="section-subtitle contact__initial">Let's talk</span>
-                    <h2 class="section-title contact__initial"><?= $contect['title']; ?></h2>
-                    <p class="contact__description"><?= $contect['detailed']; ?></p>
-                </div>
-                <?php } ?>
-                <div class="contact__button">
-
-                    <!-- <button onclick="loadBookView()" class="button" style="border: none;">Contact us now</button> -->
-                    <!-- <button id="contactButton" class="button" style="border: none;">Contact us now</button> -->
-                    <button class="button" style="border: none;" onclick="$('#BookView').load('./backend/book.php')">Contact us now</button>
-                </div>
+<!--========== CONTACT US ==========-->
+<?php
+$contects = $Contect->all();
+foreach ($contects as $contect) {
+?>
+    <section class="contact section bd-container" id="contact">
+        <div class="contact__container bd-grid">
+            <div class="contact__data">
+                <span class="section-subtitle contact__initial">Let's talk</span>
+                <h2 class="section-title contact__initial"><?= $contect['title']; ?></h2>
+                <p class="contact__description"><?= $contect['detailed']; ?></p>
             </div>
-        </section>
+        <?php } ?>
+        <div class="contact__button">
+
+            <!-- <button onclick="loadBookView()" class="button" style="border: none;">Contact us now</button> -->
+            <!-- <button id="contactButton" class="button" style="border: none;">Contact us now</button> -->
+            <button class="button" style="border: none;" onclick="$('#BookView').load('./backend/book.php')">Contact us now</button>
+        </div>
+        </div>
+    </section>
